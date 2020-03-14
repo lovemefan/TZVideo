@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png =500x500)
+<img src="https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png" width = "500" height = "500" alt="logo" align=left />
 # TZVideo
 
 TZVideo你的追剧小助手
