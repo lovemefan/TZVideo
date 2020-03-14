@@ -1,6 +1,3 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">TZVideo</view>
-</cu-custom>
 <home wx:if="{{PageCur=='home'}}"></home>
 <classify wx:if="{{PageCur=='classify'}}"></classify>
 <upgrade wx:if="{{PageCur=='upgrade'}}"></upgrade>

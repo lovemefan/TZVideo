@@ -4,12 +4,14 @@
     "pages/home/home",
     "pages/classify/classify",
     "pages/upgrade/upgrade",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/about/abouts/abouts",
+    "pages/about/log/log"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "ColorUI",
+    "navigationBarTitleText": "TZVideo",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
