@@ -1,9 +1,9 @@
-![logo](https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png)
+![logo](https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png =500x500)
 # TZVideo
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
-
+感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHu支持一下！
 ## 主要原理
 
 首先通过豆瓣查询影片信息,然后通过相关接口(后面附上)和爬虫提取直链
