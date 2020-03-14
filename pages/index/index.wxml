@@ -1,0 +1,39 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">TZVideo</view>
+</cu-custom>
+<home wx:if="{{PageCur=='home'}}"></home>
+<classify wx:if="{{PageCur=='classify'}}"></classify>
+<upgrade wx:if="{{PageCur=='upgrade'}}"></upgrade>
+<about wx:if="{{PageCur=='about'}}"></about>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/home{{PageCur=='home'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">首页</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="classify">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/classify{{PageCur=='classify'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='classify_cur'?'text-green':'text-gray'}}">分类</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="upgrade">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/upgrade{{PageCur=='upgrade'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='upgrade'?'text-green':'text-gray'}}">更新</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="about">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">我的</view>
+  </view>
+
+</view>
