@@ -1,7 +1,8 @@
-<img src="https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png" width = "500" height = "500" alt="logo" align=left />
+<img src="https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png" width = "500" height = "500" alt="logo"  />
 
-<br>
-# TZVideo
+
+TZVideo
+========
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
