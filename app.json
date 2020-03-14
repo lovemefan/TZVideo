@@ -6,7 +6,9 @@
     "pages/upgrade/upgrade",
     "pages/about/about",
     "pages/about/abouts/abouts",
-    "pages/about/log/log"
+    "pages/about/log/log",
+    "pages/about/favor/favor",
+    "pages/about/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",

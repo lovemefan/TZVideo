@@ -1,23 +1,13 @@
-// pages/home/home.js
+// pages/about/history/history.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 当前tab
-    TabCur: 0,
-    scrollLeft: 0
+
   },
-  /**
-   * 导航栏切换
-   */
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -72,5 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
+  }
 })

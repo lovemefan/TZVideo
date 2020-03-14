@@ -16,7 +16,7 @@
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="/pages/about/favor/favor" hover-class="none">
         <text class="cuIcon-favor text-orange"></text>
         <text class="text-grey">我的收藏</text>
       </navigator>
@@ -25,7 +25,7 @@
 
 
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="/pages/about/history/history" hover-class="none">
         <text class="cuIcon-list text-orange"></text>
         <text class="text-grey">历史记录</text>
       </navigator>

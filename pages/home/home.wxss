@@ -1,1 +1,17 @@
 /* pages/home/home.wxss */
+.box {
+  top: 5.5em;
+  left: auto;
+  right: auto;
+  width: 100%;
+  position: absolute;
+  background-color:  rgba(255, 255, 255, 0);
+  z-index: 100;
+}
+.box input {
+  background-color:  rgba(0, 0, 0, 0.1);
+}
+.content_bar {
+  top: 9em;
+  position: absolute;
+}
