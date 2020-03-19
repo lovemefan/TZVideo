@@ -43,8 +43,29 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
+  userLogin: function (e) {
     console.log(e)
+    wx.login({
+      success: res => {
+        console.log(res)
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        //获取encryptedData和iv
+        let encryptedData = wx.getStorageSync('encryptedData');
+        let iv = wx.getStorageSync('iv');
+        let code = res.code;
+        wx.getUserInfo({
+          success: function (res) {
+            let encryptedData = res.encryptedData;
+            let iv = res.iv;
+            that.setData({
+              encryptedData: encryptedData,
+              iv: iv
+            });
+          }
+        })
+          // 服务检查登录相关代码
+      }
+    })
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

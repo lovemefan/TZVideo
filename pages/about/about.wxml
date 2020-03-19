@@ -2,7 +2,7 @@
  <view class="UCenter-bg">
     <view class="userinfo">
     
-    <button wx:if="{{!hasUserInfo && canIUse}}" class="cu-avatar xl round" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style=" font-size: 1.5em; background:#62c2ff">Login</button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" class="cu-avatar xl round" open-type="userLogin" bindtap="userLogin" style=" font-size: 1.5em; background:#62c2ff">Login</button>
     <block wx:else>
       <image bindtap="bindViewTap" class="cu-avatar xl round" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>

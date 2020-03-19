@@ -30,8 +30,26 @@
     </view>
   </scroll-view>
   <block wx:if="{{TabCur==0}}">
-    <text> 这里是片单
-    </text>
+    <block wx:for="{{movies['subjects']}}" wx:key="this">
+      <view class="cu-card article" >
+        <view class="cu-item shadow">
+          <view class="content">
+            <image class="shadow" style="height:12em;top:0.5em"  src="{{item.images['small']}}" mode="aspectFit"></image>
+            <view class="desc">
+              <view class="title">
+                <view class="padding-xs">{{item.title}}</view>
+              </view>
+              <view>导演: <text wx:for="{{item.directors}}" wx:for-item="d">{{d.name}} </text></view>
+              <view>演员: <text wx:for="{{item.casts}}" wx:for-item="c">{{c.name}} </text></view>
+              <view>
+                <view class="cu-tag light sm round">豆瓣评分:</view>
+                <view class="cu-tag bg-red light  round">{{item.rating.average}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
   </block>
   <block wx:if="{{TabCur==1}}">
   <text> 这里是热剧
