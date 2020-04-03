@@ -1,0 +1,29 @@
+<!--pages/movieInfo/moviesInfo.wxml-->
+
+<view class="scrollPage info-card" >
+  <view class="cu-card case " style="height: 18em;">
+    <view class="cu-item shadow">
+      <view class="flex itemcard padding-sm" style="background:#{{movieInfo.body_bg_color}}">
+        <view class="flex-sub" style="margin-right: 3%;">
+        <image class="cover shadow" src="{{movieInfo.cover.image.small.url}}" mode="scaleToFill"></image>
+        </view>
+        <view class="flex-twice text-left">
+          <text class="text-bold  basis-xl text-xl">{{movieInfo.aka[0]}}</text>
+          <view class="basis-xs"></view>
+          <text class="text-sm text-red basis-xl">{{movieInfo.card_subtitle}}</text>
+          <view class='itembox'>
+            <view wx:for="{{imgs}}" wx:key="{{item.id}}"  data-index="{{item.id}}">
+              <image class="star" src="{{item.id>movieInfo.rating.star_count?src2:src1}}"></image>
+            </view>
+          </view>
+          <view class="basis-xs text-bold ">简介:</view>
+          <view class="basis-df"></view>
+          <scroll-view scroll-y="true" class="scroll-wrapper flex flex-wrap" style=" width: 90%; height:40%;">
+            <text class="scroll-view-item text-gray margin-xs basis-xl text-sm" >{{movieInfo.intro}}</text>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

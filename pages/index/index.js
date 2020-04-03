@@ -6,11 +6,15 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    motto: 'Hi 开发者！',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    PageCur: 'home'
+    PageCur: 'home',
+    playLists: null,
+    tv: null,
+    movie: null,
+    show: null,
+    animation: null,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -46,7 +50,9 @@ Page({
         }
       })
     }
+    this.fushPlayList()
   },
+  // 导航栏切换
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur
@@ -59,5 +65,7 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  
+  
 })

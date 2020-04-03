@@ -1,0 +1,30 @@
+/* pages/movieInfo/movieInfo.wxss */
+.info-card{
+  margin-top: 1em;
+}
+.cover{
+  height:15em;
+  width:10em;
+  border-radius:5px;
+}
+.info{
+  overflow:scroll;
+  /* text-overflow: ellipsis; */
+  word-wrap: break-word; 
+  word-break: normal; 
+}
+.itembox {
+  display: flex;
+  align-items: center;
+}
+.scorePin{
+  font-size:26rpx;
+  font-weight: 600;
+}
+ 
+.star {
+  width: 25rpx;
+  height:25rpx;
+  /* margin: 0 px; */
+  vertical-align: middle;
+}

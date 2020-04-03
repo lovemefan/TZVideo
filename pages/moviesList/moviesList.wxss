@@ -1,0 +1,8 @@
+/* pages/moviesList/moviesList.wxss */
+.itemcard {
+  padding: 20rpx
+}
+.title {
+ margin-top: 1em;
+
+}

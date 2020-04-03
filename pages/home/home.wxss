@@ -5,6 +5,7 @@
   right: auto;
   width: 100%;
   position: absolute;
+  /* position:fixed ;  */
   background-color:  rgba(255, 255, 255, 0);
   z-index: 100;
 }
@@ -14,4 +15,18 @@
 .content_bar {
   top: 9em;
   position: absolute;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-li {
+border-radius: 12rpx;
+width: 28%;
+margin: 0 2.5% 40rpx;
+background-size: cover;
+background-position: center;
+position: relative;
+z-index: 1;
+
 }

@@ -1,5 +1,5 @@
 const apikey = '0df993c66c0c636e29ecbb5344252a4a'
-const douban = 'http://api.douban.com/v2/movie/in_theaters'
+const douban = 'https://api.douban.com/v2/movie/top250'
 
 function getMovieList(callback) { 
   wx.request({
