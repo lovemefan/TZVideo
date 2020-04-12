@@ -1,6 +1,47 @@
 <!--pages/movieInfo/moviesInfo.wxml-->
-
-<view class="scrollPage info-card" >
+<view class="detail-container" style="background-color: #{{movieInfo.header_bg_color}}">
+  <view class="img-container">
+    <image class="shadow" mode="aspectFit" data-src="{{movieInfo.cover.image.large.url}}" src="{{movieInfo.cover.image.small.url}}" bindtap="previewImage"/> 
+  </view>
+  <view class="info-container">
+      <view class="info-row">
+      <!-- 电影名 -->
+          <text class="text-bold text-xl">{{title}}</text>
+          <br/>
+      </view>
+      <!-- 上映时间和地点 -->
+      <view class="info-row">
+          上映：{{movieInfo.countries[0]}}
+      </view>
+      <!-- 导演 -->
+      <view class="info-row">
+         导演: {{movieInfo.directors[0].name}} 
+      </view>
+      <!-- 上映日期 -->
+      <view class="info-row">
+         上映日期： {{movieInfo.card_subtitle}}
+      </view>
+    </view>
+</view>
+<!--电影介绍  -->
+<view class="movie-intr">
+    {{movieInfo.intro}}
+</view>
+<view class="person-container">
+  <view class="act-info">演员</view>
+  <scroll-view scroll-x class="scroll-header" >
+      <view class="act-img" wx:for="{{movieInfo.actors}}"  wx:key="{{item.id}}">
+      <view>
+          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage">
+          </image>
+          <text class="actor-name">  
+              {{item.name}}
+          </text>
+      </view>
+      </view>
+</scroll-view>
+</view>
+<!-- <view class="scrollPage info-card" >
   <view class="cu-card case " style="height: 18em;">
     <view class="cu-item shadow">
       <view class="flex itemcard padding-sm" style="background:#{{movieInfo.body_bg_color}}">
@@ -10,20 +51,20 @@
         <view class="flex-twice text-left">
           <text class="text-bold  basis-xl text-xl">{{movieInfo.aka[0]}}</text>
           <view class="basis-xs"></view>
+          <text class="text-bold  basis-xl text-xl">{{movieInfo.aka[1]}}</text>
+          <view class="basis-xs"></view>
+          <view class="basis-xs"></view>
           <text class="text-sm text-red basis-xl">{{movieInfo.card_subtitle}}</text>
           <view class='itembox'>
-            <view wx:for="{{imgs}}" wx:key="{{item.id}}"  data-index="{{item.id}}">
+            <view wx:for="{{imgs}}" enable-flex="true" wx:key="{{item.id}}" enable-flex data-index="{{item.id}}">
               <image class="star" src="{{item.id>movieInfo.rating.star_count?src2:src1}}"></image>
             </view>
           </view>
-          <view class="basis-xs text-bold ">简介:</view>
-          <view class="basis-df"></view>
-          <scroll-view scroll-y="true" class="scroll-wrapper flex flex-wrap" style=" width: 90%; height:40%;">
-            <text class="scroll-view-item text-gray margin-xs basis-xl text-sm" >{{movieInfo.intro}}</text>
-          </scroll-view>
+        
         </view>
       </view>
     </view>
-  </view>
-  
 </view>
+    <view class="basis-xs text-bold ">简介:</view>
+      <text class="basis-xs text-bold ">{{movieInfo.intro}}</text>    
+   </view> -->

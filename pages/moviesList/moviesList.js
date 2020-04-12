@@ -1,12 +1,15 @@
 // pages/moviesList/moviesList.js
 const douban = require('../../utils/douban.js')
+var contactItems = {}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+   offset: 0,
+   limit:9,
+  
   },
 
   /**
@@ -55,13 +58,36 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '刷新中，请稍等',
+      mask:true,
+    })
+    this.setData({
+      offset:0,
+      limit:9
+    })
+    this.getMoviesList(this.data.id)
+   
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
+  
   onReachBottom: function () {
+    let limit = this.data.limit;
+    this.setData({
+      limit:limit+9,
+      
+    })
+    wx.showLoading({
+      title: '正在加载中',
+    })
+    
+    this.getMoviesList(this.data.id)
+
+   
 
   },
 
@@ -73,13 +99,19 @@ Page({
   },
   getMoviesList: function(id) {
     var that = this
-    douban.getDoubanMoviesList(0,20,id,(res)=>{
+    let limit = that.data.limit
+    let offset = that.data.offset
+     
+    douban.getDoubanMoviesList(0, limit,id,(res)=>{
       that.setData({
-        moviesList: res.data
+       moviesList: res.data,
       })
       wx.hideLoading()
+      wx.hideLoading();
       console.log(res.data)
       return true
     })
+    
+   
   }
 })

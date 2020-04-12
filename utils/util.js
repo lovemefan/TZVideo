@@ -164,7 +164,7 @@ function b64_hmac_sha1(k, d, _p, _z) {
  * ts 为时间戳
  */
 function makeSignature(data,ts) {
-  var host = "https://frodo.douban.com"
+  var host = "https://douban.lovemefan.top"
   // 提取url
   var url = data.replace(host,'')
   var key = "bf7dddc7c9cfe6f7"
@@ -179,7 +179,34 @@ function getTimeStamp(){
   return Date.parse(new Date()) / 1000
 }
 
+/**
+ * 活到老学到老,为了提高代码质量
+ * 封装封装微信的的request
+ */
+const douban = require('douban.js')
+function request(url, data = {}, header = {}, method = "GET") {
+  let that = this
+
+  return new Promise(function (resolve, reject) {
+    console.log(header)
+    wx.request({
+      url: url,
+      data: data,
+      method: method,
+      header: header,
+      success: function (res) {
+        console.log("success");
+            resolve(res.data);
+      },
+      fail: function (err) {
+        reject(err)
+        console.log("failed")
+      }
+    })
+  });
+}
 module.exports = {
   makeSignature: makeSignature,
-  getTimeStamp: getTimeStamp
+  getTimeStamp: getTimeStamp,
+  request:request
 }

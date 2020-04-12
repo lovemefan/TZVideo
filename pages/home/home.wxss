@@ -1,4 +1,5 @@
 /* pages/home/home.wxss */
+@import "/pages/component/search/search.wxss";
 .box {
   top: 5.5em;
   left: auto;
@@ -21,12 +22,12 @@
   flex-wrap: wrap;
 }
 .nav-li {
-border-radius: 12rpx;
-width: 28%;
-margin: 0 2.5% 40rpx;
-background-size: cover;
-background-position: center;
-position: relative;
-z-index: 1;
+  border-radius: 12rpx;
+  width: 28%;
+  margin: 0 2.5% 40rpx;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
 
 }

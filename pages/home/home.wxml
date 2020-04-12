@@ -1,12 +1,14 @@
 <!--pages/home/home.wxml-->
-
+<import src="/pages/component/search/search.wxml"/>
 <view class="box" >
   <view class="cu-bar search gradualBlue">
     <view class="search-form round">
     <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+      <input type="text" bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindconfirm="searchConfirm" placeholder="搜索图片、文章、视频" bindconfirm="wxSearchFn" bindblur="wxSearchBlur" confirm-type="search" value="{{wxSearchData.value}}"></input>
+      
     </view>
   </view>
+  <template is="wxSearch" data="{{wxSearchData}}"/>
 </view>
 <view >
   <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
@@ -38,7 +40,7 @@
 <!-- 片单 -->
   <view wx:if="{{TabCur==0}}" class="nav-list" >
     <navigator open-type="navigate" hover-class='none' url="/pages/moviesList/moviesList?id={{item.id}}&bg={{item.bg_image}}&title={{item.title}}" class="nav-li shadow" wx:for="{{playLists.data[0].items}}" wx:key="this">
-      <image class="shadow" style="height:8em;width:8em;"  src="{{item.target_doulist.cover_url}}" mode="aspectFit"></image>
+      <image class="shadow" style="height:8em;width:8em;"  src="{{item.cover_url}}" mode="aspectFit"></image>
       <view class="nav-title" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-ls text-left"><text class="bg-gray  light round">共{{item.total}}部</text></view>
     </navigator>
@@ -46,7 +48,7 @@
 <!-- 电视剧 -->
   <view wx:if="{{TabCur==1}}" class="nav-list" >
   
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}" class="nav-li" wx:for="{{hotTv.subject_collection_items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotTv.subject_collection_items}}" wx:key="this">
       <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
@@ -54,7 +56,7 @@
   </view>
 <!-- 电影 -->
   <view wx:if="{{TabCur==2}}" class="nav-list" >
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}" class="nav-li" wx:for="{{hotMovie.subject_collection_items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotMovie.subject_collection_items}}" wx:key="this">
         <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
         <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
         <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
@@ -63,7 +65,7 @@
   </view>
 <!-- 综艺 -->
   <view wx:if="{{TabCur==3}}" class="nav-list">
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}" class="nav-li" wx:for="{{hotShow.subject_collection_items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotShow.subject_collection_items}}" wx:key="this">
       <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
@@ -71,7 +73,7 @@
   </view>
 <!-- 动漫 -->
   <view wx:if="{{TabCur==4}}" class="nav-list">
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}" class="nav-li" wx:for="{{hotAnimation.subject_collection_items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotAnimation.subject_collection_items}}" wx:key="this">
       <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>

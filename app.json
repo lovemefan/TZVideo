@@ -11,14 +11,14 @@
     "pages/moviesList/moviesList",
     "pages/movieInfo/movieInfo",
     "pages/component/rating/rating",
-    "pages/component/loading/loading"
+    "pages/component/loading/loading",
+    "pages/component/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "TZVideo",
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#2c2c2c",

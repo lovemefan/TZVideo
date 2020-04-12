@@ -30,46 +30,46 @@ const PLAYLIST_CAREGORIES = {
  */
 
 // 豆瓣片单 url
-const DOUBAN_NEW_PLAYLISTS = "https://frodo.douban.com/api/v2/skynet/new_playlists"
+const DOUBAN_NEW_PLAYLISTS = "https://douban.lovemefan.top/api/v2/skynet/new_playlists"
 // 豆瓣某一片单电影列表
-var DOUBAN_MOVIES_LIST = "https://frodo.douban.com/api/v2/doulist/{}/posts"
+var DOUBAN_MOVIES_LIST = "https://douban.lovemefan.top/api/v2/doulist/{}/posts"
 // 电影详情
-var DOUBAN_MOVIE_INFO = "https://frodo.douban.com/api/v2/movie/{}"
+var DOUBAN_MOVIE_INFO = "https://douban.lovemefan.top/api/v2/movie/{}"
 // 电视剧详情,包括电视剧和动漫和综艺
-var DOUBAN_TV_INFO = "https://frodo.douban.com/api/v2/tv/{}"
+var DOUBAN_TV_INFO = "https://douban.lovemefan.top/api/v2/tv/{}"
 /**
  * 豆瓣热播
  */
 
 // 热播电影
-const DOUBAN_MOVIE_HOT = "https://frodo.douban.com/api/v2/subject_collection/movie_hot_gaia/items"
+const DOUBAN_MOVIE_HOT = "https://douban.lovemefan.top/api/v2/subject_collection/movie_hot_gaia/items"
 // 热播电视剧 综合
-const DOUBAN_TV_HOT = "https://frodo.douban.com/api/v2/subject_collection/tv_hot/items"
+const DOUBAN_TV_HOT = "https://douban.lovemefan.top/api/v2/subject_collection/tv_hot/items"
 // 热播电视剧 国产剧
-const DOUBAN_TV_DOMESTIC = "https://frodo.douban.com/api/v2/subject_collection/tv_domestic/items"
+const DOUBAN_TV_DOMESTIC = "https://douban.lovemefan.top/api/v2/subject_collection/tv_domestic/items"
 // 热播电视剧 美剧
-const DOUBAN_TV_AMERICAN = "https://frodo.douban.com/api/v2/subject_collection/tv_american/items"
+const DOUBAN_TV_AMERICAN = "https://douban.lovemefan.top/api/v2/subject_collection/tv_american/items"
 // 热播电视剧 日剧
-const DOUBAN_TV_JANPANESE = "https://frodo.douban.com/api/v2/subject_collection/tv_japanese/items"
+const DOUBAN_TV_JANPANESE = "https://douban.lovemefan.top/api/v2/subject_collection/tv_japanese/items"
 // 热播电视剧 韩剧
-const DOUBAN_TV_KOREAN = "https://frodo.douban.com/api/v2/subject_collection/tv_korean/items"
+const DOUBAN_TV_KOREAN = "https://douban.lovemefan.top/api/v2/subject_collection/tv_korean/items"
 // 热播动漫
-const DOUBAN_TV_ANIMATION = "https://frodo.douban.com/api/v2/subject_collection/tv_animation/items"
+const DOUBAN_TV_ANIMATION = "https://douban.lovemefan.top/api/v2/subject_collection/tv_animation/items"
 // 热门综艺 综合
-const DOUABN_SHOW_HOT = "https://frodo.douban.com/api/v2/subject_collection/show_hot/items"
+const DOUABN_SHOW_HOT = "https://douban.lovemefan.top/api/v2/subject_collection/show_hot/items"
 // 热门综艺 国内
-const DOUBAN_SHOW_DOMESTIC = "https://frodo.douban.com/api/v2/subject_collection/show_domestic/items"
+const DOUBAN_SHOW_DOMESTIC = "https://douban.lovemefan.top/api/v2/subject_collection/show_domestic/items"
 // 热门综艺 国外
-const DOUBAN_TSHOW_FOREIGN = "https://frodo.douban.com/api/v2/subject_collection/show_foreign/items"
+const DOUBAN_TSHOW_FOREIGN = "https://douban.lovemefan.top/api/v2/subject_collection/show_foreign/items"
 // 
 /**
  * 分类查询接口
  */
 
-const DOUBAN_SEARCH_BY_TAG = "https://frodo.douban.com/api/v2/tv/tag"
+const DOUBAN_SEARCH_BY_TAG = "https://douban.lovemefan.top/api/v2/tv/tag"
 
 
-const DOUBAN_SEARCH_SUGGESTION = "https://frodo.douban.com/api/v2/search/suggestion"
+const DOUBAN_SEARCH_SUGGESTION = "https://douban.lovemefan.top/api/v2/search/suggestion"
 /**
  * 根据id返回电影的详情
  */
@@ -317,25 +317,28 @@ function getDoubanHotAnimation(start, count, callback) {
     }
   })
 }
-
-// 搜索建议
-function searchSuggestion(query,that) {
-  wx.request({
-    url: DOUBAN_SEARCH_SUGGESTION,
-    data: {
-     'q' : query,
-      'apikey': APIKEY
-
-    },
-    header: {
+/**
+ * 搜索建议
+ * 使用promise封装,比之前的callback高级多了
+ */
+function searchSuggestion(query) {
+  let that = this;
+  var ts = util.getTimeStamp()
+  var sig = util.makeSignature(DOUBAN_SEARCH_SUGGESTION, ts)
+  return util.request(DOUBAN_SEARCH_SUGGESTION, {
+    'q': query,
+    'apikey': APIKEY,
+    'count': 20,
+    'channel': 'Douban',
+    'udid': UDID,
+    '_sig': sig,
+    '_ts': ts,
+  }, 
+  {
       'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
-      "Content-Type": "application/text",
-    },
-    success(res) {
-      return typeof callback == "function" && callback(res)
-    }
   })
+
 }
 
 module.exports = {
@@ -346,5 +349,6 @@ module.exports = {
   getDoubanHotMovie: getDoubanHotMovie,
   getDoubanMoviesList: getDoubanMoviesList,
   getDoubanMovieInfo: getDoubanMovieInfo,
-  getDoubanTvInfo: getDoubanTvInfo
+  getDoubanTvInfo: getDoubanTvInfo,
+  searchSuggestion: searchSuggestion
 }
