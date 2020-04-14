@@ -280,7 +280,10 @@ Page({
    */
   wxSearchFn: function(e){
     var that = this
-    // searchComponent.wxSearchAddHisKey(that);
+    wx.navigateTo({
+      url: '/pages/searchList/searchList?q=' + e.detail.value
+    })
+    searchComponent.wxSearchAddHisKey(that);
     
   },
   wxSearchInput: function(e){
@@ -298,12 +301,13 @@ Page({
   wxSearchKeyTap:function(e){
     var that = this
     // 点击关键词跳转详情界面
-    searchComponent.wxSearchKeyTap(e, that, (options)=>{
+    searchComponent.wxSearchKeyTap(e, that, (query)=>{
   
       wx.navigateTo({
-        url: '/pages/movieInfo/movieInfo?id=' + options.id + '&title=' + options.title
+        url: '/pages/searchList/searchList?q=' + query
       })
     });
+    searchComponent.wxSearchAddHisKey(that);
   },
   wxSearchDeleteKey: function(e){
     var that = this

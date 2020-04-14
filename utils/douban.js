@@ -68,6 +68,8 @@ const DOUBAN_TSHOW_FOREIGN = "https://douban.lovemefan.top/api/v2/subject_collec
 
 const DOUBAN_SEARCH_BY_TAG = "https://douban.lovemefan.top/api/v2/tv/tag"
 
+const DOUBAN_SEARCH = "https://douban.lovemefan.top/api/v2/search/movie"
+
 
 const DOUBAN_SEARCH_SUGGESTION = "https://douban.lovemefan.top/api/v2/search/suggestion"
 /**
@@ -340,6 +342,25 @@ function searchSuggestion(query) {
   })
 
 }
+/**
+ * 根据关键词搜索
+ * 
+ */
+function getSearchList(query) {
+  let that = this;
+  var ts = util.getTimeStamp()
+  var sig = util.makeSignature(DOUBAN_SEARCH, ts)
+  return util.request(DOUBAN_SEARCH, {
+    'q': query,
+    'apikey': APIKEY,
+    'count': 20,
+    'channel': 'Douban',
+    'udid': UDID,
+    '_sig': sig,
+    '_ts': ts,
+  })
+
+}
 
 module.exports = {
   getDoubanPlayList : getDoubanPlayList,
@@ -350,5 +371,6 @@ module.exports = {
   getDoubanMoviesList: getDoubanMoviesList,
   getDoubanMovieInfo: getDoubanMovieInfo,
   getDoubanTvInfo: getDoubanTvInfo,
-  searchSuggestion: searchSuggestion
+  searchSuggestion: searchSuggestion,
+  getSearchList: getSearchList
 }

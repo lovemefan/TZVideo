@@ -118,6 +118,7 @@ function wxSearchFocus(e, that, callBack) {
  */
 function wxSearchBlur(e, that, callBack) {
     var temData = that.data.wxSearchData;
+    temData.view.isShow = false;
     // temData.value = e.detail.value;
     that.setData({
         wxSearchData: temData
@@ -142,18 +143,11 @@ function wxSearchKeyTap(e, that, callBack) {
     //回调
     var temData = that.data.wxSearchData;
     temData.value = e.target.dataset.key;
-    var options = {}
     that.setData({
         wxSearchData: temData
     });
     if (typeof (callBack) == "function") {
-      douban.searchSuggestion(temData.value).then(function (res) {
-        options.id = res.cards[0].target.id
-        options.title = res.cards[0].target.title
-        console.log(res)
-        callBack(options);
-      })
-        
+      callBack(temData.value);
     }
 }
 function getHisKeys(that) {

@@ -9,10 +9,12 @@
     "pages/about/favor/favor",
     "pages/about/history/history",
     "pages/moviesList/moviesList",
+    "pages/searchList/searchList",
     "pages/movieInfo/movieInfo",
+    "pages/videoPlayInfo/videoPlayInfo",
     "pages/component/rating/rating",
-    "pages/component/loading/loading",
-    "pages/component/search/search"
+    "pages/component/loading/loading"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

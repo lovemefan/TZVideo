@@ -1,0 +1,25 @@
+/* 视频 */
+
+.videoInfo-container {
+    margin-top: 10rpx;
+}
+
+.videoInfo-container video {
+    width: 100%;
+}
+
+.video-title {
+    display: flex;
+    justify-content: space-around;
+    font-size: 35rpx;
+}
+
+.video-detail {
+    margin-top: 5rpx;
+    font-size: 28rpx;
+    margin-bottom: 50rpx;
+}
+
+.video-detail text {
+    margin-left: 15rpx;
+}

@@ -8,9 +8,7 @@
       </view>
     </view>
   </view>
-
-
-  <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={item.content.subject.title}}" class="cu-item shadow" wx:for="{{moviesList.items}}" wx:key="this">
+  <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.content.subject.title}}" class="cu-item shadow" wx:for="{{moviesList.items}}" wx:key="this">
     <view class="flex itemcard" >
       <image class="shadow flex-sub" style="height:10em;width:10em;border-radius:10px;"  src="{{item.content.subject.pic.normal}}" mode="aspectFit"></image>
       <view class="content flex-twice ">

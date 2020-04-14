@@ -40,6 +40,7 @@
       </view>
       </view>
 </scroll-view>
+<navigator url="/pages/videoPlayInfo/videoPlayInfo">点我</navigator>
 </view>
 <!-- <view class="scrollPage info-card" >
   <view class="cu-card case " style="height: 18em;">

@@ -1,0 +1,19 @@
+<view class="videoInfo-container">
+        <!-- 视频 -->
+        <video src="https://sina.com-h-sina.com/20180812/7981_dd91926d/index.m3u8" controls></video>
+        <!-- 视频标题 -->
+        <view class="video-title">
+            <text>{{videoDetail.videoTitle}}</text>
+        </view>
+        <!-- 视频信息 -->
+        <view class="video-detail">
+            
+            <text class="author">{{videoDetail.author}}</text>
+            <!-- 播放量 -->
+            <text class="play-count">{{videoDetail.playCount}}次观看</text>
+            <!-- 评论量 -->
+            <text class="comment-count">{{videoDetail.commentCount}}弹幕</text>
+            <!-- 时间 -->
+            <text class="date">{{videoDetail.date}}</text>
+        </view>
+    </view>
