@@ -50,8 +50,8 @@ Page({
     this.setData({
       id: options.id,
     })
-   // this.getMovieInfo(this.data.id)
-    this.getMovieInfo(1401261)
+    this.getMovieInfo(this.data.id)
+    // this.getMovieInfo(1401261)
   },
 
   /**
