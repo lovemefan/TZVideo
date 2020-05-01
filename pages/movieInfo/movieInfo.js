@@ -25,29 +25,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  previewImage: function (e) {
-    var current = e.target.dataset.src;
-    console.log(current)
+  previewMovie: function (e) {
+    var current = e.target.dataset.src
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
       urls: [current]// 需要预览的图片http链接列表  
     })
   },
+  previewActors: function (e) {
+    var current = e.target.dataset.src;
+    console.log(current)
+    var actors = this.data.actors;
+    let urls=[]
+    for (var actor in actors){
+      urls.push(actors[actor].cover_url);
+    }
+
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接  
+      urls: urls// 需要预览的图片http链接列表  
+    })
+  },
   onLoad: function (options) {
     this.setData({
       id: options.id,
-      title :options.title
     })
-    this.getMovieInfo(this.data.id)
-
-    if (typeof (this.movieInfo.aka[0]) == "undefined") {
-      wx.showToast({
-        title: '该电影不存在',
-        icon: 'failed',
-        duration: 5000
-      })
-    }
-    //this.getMovieInfo(1401261)
+   // this.getMovieInfo(this.data.id)
+    this.getMovieInfo(1401261)
   },
 
   /**
@@ -102,7 +106,8 @@ Page({
     var that = this
     douban.getDoubanMovieInfo(id, (res) => {
       that.setData({
-        movieInfo: res.data
+        movieInfo: res.data,
+        actors:res.data.actors
       })
       wx.hideLoading()
       console.log(res.data)

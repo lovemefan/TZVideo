@@ -1,13 +1,12 @@
 <!--pages/movieInfo/moviesInfo.wxml-->
-<view class="detail-container" style="background-color: #{{movieInfo.header_bg_color}}">
+<view class="detail-container">
   <view class="img-container">
-    <image class="shadow" mode="aspectFit" data-src="{{movieInfo.cover.image.large.url}}" src="{{movieInfo.cover.image.small.url}}" bindtap="previewImage"/> 
+    <image mode="aspectFit" data-src="{{movieInfo.cover.image.normal.url}}" src="{{movieInfo.cover.image.small.url}}" bindtap="previewMovie"/> 
   </view>
   <view class="info-container">
       <view class="info-row">
       <!-- 电影名 -->
-          <text class="text-bold text-xl">{{title}}</text>
-          <br/>
+          {{movieInfo.aka[0]}}
       </view>
       <!-- 上映时间和地点 -->
       <view class="info-row">
@@ -32,7 +31,7 @@
   <scroll-view scroll-x class="scroll-header" >
       <view class="act-img" wx:for="{{movieInfo.actors}}"  wx:key="{{item.id}}">
       <view>
-          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage">
+          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewActors">
           </image>
           <text class="actor-name">  
               {{item.name}}
@@ -40,8 +39,22 @@
       </view>
       </view>
 </scroll-view>
-<navigator url="/pages/videoPlayInfo/videoPlayInfo">点我</navigator>
 </view>
+<!-- <view class="section tc">
+  <video
+    id="myVideo"
+    src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+    danmu-list="{{danmuList}}"
+    enable-danmu
+    danmu-btn
+    controls
+  ></video>
+  <view class="btn-area">
+    <button bindtap="bindButtonTap">获取视频</button>
+    <input bindblur="bindInputBlur" />
+    <button bindtap="bindSendDanmu">发送弹幕</button>
+  </view>
+</view> -->
 <!-- <view class="scrollPage info-card" >
   <view class="cu-card case " style="height: 18em;">
     <view class="cu-item shadow">
