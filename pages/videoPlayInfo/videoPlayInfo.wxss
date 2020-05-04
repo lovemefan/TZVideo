@@ -23,3 +23,17 @@
 .video-detail text {
     margin-left: 15rpx;
 }
+.videos-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.video-item{
+    background-color: #dfdfdf;
+    border-radius: 2%;
+    justify-content: center;
+    align-items: center;
+    margin:20rpx;
+    padding: 20rpx;
+    height:30% ;
+    width: 20% ;
+}

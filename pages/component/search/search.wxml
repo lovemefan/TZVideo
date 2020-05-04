@@ -9,7 +9,6 @@
                 </block>
             </view>
         </view>
-
         <!-- <view class="wxSearchKey" style="display:{{wxSearchData.view.isShowSearchKey ? 'block':'none'}}">
             <text class="wxSearchTitle">热门搜索</text>
             <view class="wxSearchKeyList">

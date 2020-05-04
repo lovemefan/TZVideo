@@ -23,8 +23,9 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#2c2c2c",
+    "color": "slategray",
     "selectedColor": "#1296db",
+    "backgroundColor": "#efeeee",
     "list": [
       {
         "text": "首页",

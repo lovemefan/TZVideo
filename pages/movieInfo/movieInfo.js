@@ -1,5 +1,6 @@
 // pages/movieInfo/movieInfo.js
 const douban = require('../../utils/douban.js')
+const scawler = require('../../utils/scrawler.js')
 Page({
 
   /**
@@ -38,8 +39,10 @@ Page({
       id: options.id,
       title :options.title
     })
+    
     this.getMovieInfo(this.data.id)
-
+    // 截取标题的一部份为了尽可能搜索到更多的资源
+    this.getMoviesResource(this.data.title.substring(0, 5))
     if (typeof (this.movieInfo.aka[0]) == "undefined") {
       wx.showToast({
         title: '该电影不存在',
@@ -48,6 +51,7 @@ Page({
       })
     }
     //this.getMovieInfo(1401261)
+    
   },
 
   /**
@@ -107,6 +111,15 @@ Page({
       wx.hideLoading()
       console.log(res.data)
       return true
+    })
+  },
+  getMoviesResource:function(query){
+    scawler.getMoviesResource(query.replace(' ',''),'list').then((res)=>{
+      console.log("获取资源中...")
+      console.log(res)
+      this.setData({
+        moviesResources:res
+      })
     })
   }
 })

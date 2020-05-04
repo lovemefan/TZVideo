@@ -40,32 +40,9 @@
       </view>
       </view>
 </scroll-view>
-<navigator url="/pages/videoPlayInfo/videoPlayInfo">点我</navigator>
+<view wx:if="{{moviesResources.total==0}}">暂无资源</view>
+<navigator wx:if="{{moviesResources.total>0}}" wx:for="{{moviesResources.list}}" class="click-play shadow" url="/pages/videoPlayInfo/videoPlayInfo?title={{item.vod_name}}">
+  <text class="cuIcon-videofill">    </text>
+  {{item.vod_name}}
+</navigator>
 </view>
-<!-- <view class="scrollPage info-card" >
-  <view class="cu-card case " style="height: 18em;">
-    <view class="cu-item shadow">
-      <view class="flex itemcard padding-sm" style="background:#{{movieInfo.body_bg_color}}">
-        <view class="flex-sub" style="margin-right: 3%;">
-        <image class="cover shadow" src="{{movieInfo.cover.image.small.url}}" mode="scaleToFill"></image>
-        </view>
-        <view class="flex-twice text-left">
-          <text class="text-bold  basis-xl text-xl">{{movieInfo.aka[0]}}</text>
-          <view class="basis-xs"></view>
-          <text class="text-bold  basis-xl text-xl">{{movieInfo.aka[1]}}</text>
-          <view class="basis-xs"></view>
-          <view class="basis-xs"></view>
-          <text class="text-sm text-red basis-xl">{{movieInfo.card_subtitle}}</text>
-          <view class='itembox'>
-            <view wx:for="{{imgs}}" enable-flex="true" wx:key="{{item.id}}" enable-flex data-index="{{item.id}}">
-              <image class="star" src="{{item.id>movieInfo.rating.star_count?src2:src1}}"></image>
-            </view>
-          </view>
-        
-        </view>
-      </view>
-    </view>
-</view>
-    <view class="basis-xs text-bold ">简介:</view>
-      <text class="basis-xs text-bold ">{{movieInfo.intro}}</text>    
-   </view> -->

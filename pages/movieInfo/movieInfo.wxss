@@ -29,7 +29,9 @@
   color: white
 }
 .movie-intr{
-  background-color:  ghostwhite;
+  background-color: white;
+  font-family: fantasy;
+  color:  slategray;
   font-size: 24rpx;
   padding: 40rpx;
   line-height: 40rpx
@@ -59,6 +61,7 @@ display: inline-block;
   margin-left: 10rpx
 }
 .act-img image{
+  border-radius: 10rpx;
   height:320rpx;
   width: 220rpx
 }
@@ -68,8 +71,23 @@ display: inline-block;
 .btn-like{
   margin: 30rpx 40rpx 20rpx 40rpx
 }
-
-
+.person-container image{
+  border-radius: 10rpx;
+}
+.click-play{
+  background-color: #dfdfdf;
+  font-size: x-large;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  height: 40%;
+  width: 80%;
+  display: flex;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  justify-content: left;
+  align-items: center;
+  font-size: medium;
+}
 
 /* pages/movieInfo/movieInfo.wxss
 

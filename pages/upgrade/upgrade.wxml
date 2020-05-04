@@ -1,2 +1,4 @@
-<!--pages/upgrade/upgrade.wxml-->
-<text>这里是更新</text>
+<view class="coding" >
+  <image mode="aspectFill" src="/images/coding.png" ></image>
+  <text >更新也还没做</text>
+</view>
