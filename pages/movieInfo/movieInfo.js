@@ -34,6 +34,19 @@ Page({
       urls: [current]// 需要预览的图片http链接列表  
     })
   },
+  previewActors: function (e) {
+    var current = e.target.dataset.src;
+    console.log(current)
+    var actors = this.data.actors;
+    let urls = []
+    for (var actor in actors) {
+      urls.push(actors[actor].cover_url);
+    }
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接  
+      urls: urls// 需要预览的图片http链接列表  
+    })
+  },
   onLoad: function (options) {
     this.setData({
       id: options.id,
@@ -106,7 +119,8 @@ Page({
     var that = this
     douban.getDoubanMovieInfo(id, (res) => {
       that.setData({
-        movieInfo: res.data
+        movieInfo: res.data,
+        actors: res.data.actors
       })
       wx.hideLoading()
       console.log(res.data)

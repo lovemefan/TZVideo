@@ -32,7 +32,7 @@
   <scroll-view scroll-x class="scroll-header" >
       <view class="act-img" wx:for="{{movieInfo.actors}}"  wx:key="{{item.id}}">
       <view>
-          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage">
+          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage" bindtap="previewActors">
           </image>
           <text class="actor-name">  
               {{item.name}}

@@ -15,7 +15,7 @@
 }
 .img-container image{
   width:320rpx;
-  height: 220rpx
+  height: 360rpx;
 }
 .info-container{
   flex: 2;
