@@ -41,7 +41,7 @@
       </view>
 </scroll-view>
 <view wx:if="{{moviesResources.total==0}}">暂无资源</view>
-<navigator wx:if="{{moviesResources.total>0}}" wx:for="{{moviesResources.list}}" class="click-play shadow" url="/pages/videoPlayInfo/videoPlayInfo?title={{item.vod_name}}">
+<navigator wx:if="{{moviesResources.total>0}}" wx:for="{{moviesResources.list}}" class="click-play shadow" url="/pages/videoPlayInfo/videoPlayInfo?title={{item.vod_name}}&vod_id={{item.vod_id}}&type_id={{item.type_id}}">
   <text class="cuIcon-videofill">    </text>
   {{item.vod_name}}
 </navigator>

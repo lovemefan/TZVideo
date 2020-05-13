@@ -1,5 +1,6 @@
 // pages/videoPlayInfo/videoPlayInfo.js
-var scawler = require('../../utils/scrawler.js')
+const scawler = require('../../utils/scrawler.js')
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -14,7 +15,12 @@ Page({
    */
   onLoad: function (options) {
     this.data.title = options.title
+    this.data.type_id = options.type_id
+    this.data.vod_id = options.vod_id
     this.getMoviesResource(this.data.title)
+    wx.setNavigationBarTitle({
+      title: this.data.title
+    })
   
   },
 
@@ -68,18 +74,30 @@ Page({
   },
   getMoviesResource:function(query){
     scawler.getMoviesResource(query).then((res)=>{
-      console.log(res)
+    
       this.setData({
         moviesResources:res
       })
       this.getMovieList()
     })
   },
+  //获取播放链接
   getMovieList:function() {
-    var res = this.data.moviesResources.list[0].vod_down_url
+    var res 
+    this.data.moviesResources.list.forEach(element => {
+  
+      // 判断在电影信息界面传来的参数是否与查询的电影细节信息一致
+        if(this.data.vod_id==element.vod_id && element.type_id==this.data.type_id)
+        {
+          res = element.vod_play_url
+          this.data.info = element
+        }
+    });
+    console.log(this.data.info)
     var list = []
     if(res){
-      let item = res.split("#")
+      let item = res.split("$$$")[1]
+      item = item.split("#")
       item.forEach(element => {
         list.push(element.split("$"))
       });
@@ -97,5 +115,7 @@ Page({
     this.setData({
       currentUrl : url
     })
-  }
+  },
+  
+
 })

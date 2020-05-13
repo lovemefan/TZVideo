@@ -5,6 +5,7 @@ const APIKEY = "054022eaeae0b00e0fc068c0c0a2102a"
 const USER_AGENT = "api-client/1 com.douban.frodo/6.32.0(180) Android/22 product/R11 vendor/OPPO model/OPPO R11  rom/android  network/wifi  platform/mobile"
 const HOST = ""
 const UDID = "a4684a67c5db66436da276d582163766f927d703"
+// 片单类别
 //所有,精选,豆瓣片单,经典,获奖,高分,榜单,冷门佳片,华语,欧美,日本,韩国,喜剧,爱情,科幻,动画
 const PLAYLIST_CAREGORIES = {
   all : "all",
@@ -72,8 +73,11 @@ const DOUBAN_SEARCH = "https://douban.lovemefan.top/api/v2/search/movie"
 
 
 const DOUBAN_SEARCH_SUGGESTION = "https://douban.lovemefan.top/api/v2/search/suggestion"
+
 /**
- * 根据id返回电影的详情
+ * @description: 根据id返回电影的详情
+ * @param {int} id
+ * @return: 
  */
 function getDoubanMovieInfo(id, callback) {
   wx.showLoading({
@@ -101,8 +105,11 @@ function getDoubanMovieInfo(id, callback) {
     }
   })
 }
+
 /**
- * 根据id返回电视剧,动漫,综艺的详情
+ * @description: 根据id返回电视剧,动漫,综艺的详情
+ * @param {int} id
+ * @return: 
  */
 function getDoubanTvInfo(id, callback) {
   wx.showLoading({
@@ -130,8 +137,13 @@ function getDoubanTvInfo(id, callback) {
     }
   })
 }
+
 /**
- * 根据片单id来返回的电影的详情
+ * @description: 根据片单id来返回的电影的详情
+ * @param {int} start 列表的起始位置,
+ * @param {int} count 返回列表的长度 
+ * @param {int} id 
+ * @return: 
  */
 function getDoubanMoviesList(start,count,id,callback){
   wx.showLoading({
@@ -161,8 +173,13 @@ function getDoubanMoviesList(start,count,id,callback){
     }
   })
 }
+
 /**
- * 根据categories来返回不同的片单
+ * @description: 根据categories来返回不同的片单
+ * @param {int} start 列表的起始位置,
+ * @param {int} count 返回列表的长度 
+ * @param {string} category 片单种类
+ * @return: 
  */
 function getDoubanPlayList(start, count, category, callback) {
   wx.showLoading({
@@ -199,7 +216,13 @@ function getDoubanPlayList(start, count, category, callback) {
 // 豆瓣片单 高分
 
 
-//综艺
+/**
+ * @description: 综艺
+ * @param {int}start列表的起始位置,
+ * @param {int}count返回列表的长度
+ * @return: 
+ */
+
 function getDoubanHotShow(start, count, callback) {
   wx.showLoading({
     title: '加载中',
@@ -228,7 +251,13 @@ function getDoubanHotShow(start, count, callback) {
   })
 }
 
-//热剧
+
+/**
+ * @description: 热剧
+ * @param {int}start列表的起始位置,
+ * @param {int}count返回列表的长度 
+ * @return: 
+ */
 function getDoubanHotTv(start, count, callback) {
   wx.showLoading({
     title: '加载中',
@@ -258,7 +287,13 @@ function getDoubanHotTv(start, count, callback) {
     }
   })
 }
-//热播电影
+
+/**
+ * @description: 热播电影
+ * @param {int}start列表的起始位置,
+ * @param {int}count返回列表的长度
+ * @return: 
+ */
 function getDoubanHotMovie(start, count, callback) {
   wx.showLoading({
     title: '加载中',
@@ -287,7 +322,13 @@ function getDoubanHotMovie(start, count, callback) {
     }
   })
 }
-// 热播动漫
+
+/**
+ * @description: 热播动漫
+ * @param {int}start列表的起始位置,
+ * @param {int}count返回列表的长度
+ * @return: 
+ */
 function getDoubanHotAnimation(start, count, callback) {
   wx.showLoading({
     title: '加载中',
@@ -320,8 +361,13 @@ function getDoubanHotAnimation(start, count, callback) {
   })
 }
 /**
- * 搜索建议
- * 使用promise封装,比之前的callback高级多了
+ * 
+ * 
+ */
+/**
+ * @description: 搜索建议 使用promise封装,比之前的callback高级多了
+ * @param {string}query查询参数
+ * @return: 
  */
 function searchSuggestion(query) {
   let that = this;
@@ -342,9 +388,11 @@ function searchSuggestion(query) {
   })
 
 }
+
 /**
- * 根据关键词搜索
- * 
+ * @description: 根据关键词搜索
+ * @param {query搜索关键词} 
+ * @return: 
  */
 function getSearchList(query) {
   let that = this;

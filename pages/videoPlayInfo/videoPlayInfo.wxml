@@ -1,31 +1,25 @@
 <view class="videoInfo-container">
     <!-- 视频 -->
     <video src="{{currentUrl}}" autoplay="true" controls></video>
-    <!-- 视频标题 -->
-    <view class="video-title">
-        <text>{{moviesResources.list[0].vod_sub}}</text>
-    </view>
+
     <!-- 视频信息 -->
     <view class="video-detail">
-        <!-- 上映时间和地点 -->
+        <!-- 类型： -->
         <view class="info-row">
-            上映：{{movieInfo.countries[0]}}
+            类型：{{info.vod_class}}
         </view>
-        <!-- 导演 -->
+      
+        <!-- 更新时间 -->
         <view class="info-row">
-            导演: {{movieInfo.directors[0].name}} 
-        </view>
-        <!-- 上映日期 -->
-        <view class="info-row">
-            上映日期： {{movieInfo.card_subtitle}}
+            更新时间 {{info.vod_time}}
         </view>
     </view>
-    <view class="videos-list">
+    <scroll-view scroll-y="true" enable-flex="true" class="videos-list">
         <block wx:for="{{movieList}}">
             <view class="video-item shadow" data-src="{{item[1]}}" bindtap="setCurrentUrl">
             {{item[0]}}
             </view>
         </block>
-    </view>
+    </scroll-view>
         
 </view>

@@ -159,9 +159,14 @@ function b64_hmac_sha1(k, d, _p, _z) {
   return _x(k, d);
 }
 /**
- * 豆瓣签名算法
- * data 传入url
- * ts 为时间戳
+ * 
+ * 
+ */
+/**
+ * @description: 豆瓣签名算法
+ * @param {string} data 传入url 
+ * @param {string} ts 为时间戳
+ * @return: 
  */
 function makeSignature(data,ts) {
   var host = "https://douban.lovemefan.top"
@@ -179,11 +184,18 @@ function getTimeStamp(){
   return Date.parse(new Date()) / 1000
 }
 
-/**
- * 活到老学到老,为了提高代码质量
- * 封装封装微信的的request
- */
+
+
 const douban = require('douban.js')
+
+/**
+ * @description: 活到老学到老,为了提高代码质量 封装封装微信的的request
+ * @param {string} url 
+ * @param {list} data 请求的数据 
+ * @param {list} header  头部信息
+ * @param {string} method 默认为GET
+ * @return: 
+ */
 function request(url, data = {}, header = {}, method = "GET") {
   let that = this
 
