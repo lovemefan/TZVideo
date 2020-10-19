@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/lovemefan/TZVideo/master/images/logo.png" width = "500" height = "500" alt="logo" align=left />
+<img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/170546203.png" alt="mark" style="zoom:80%;" />
 <br>
 
 # TZVideo
