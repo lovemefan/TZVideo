@@ -1,7 +1,7 @@
 <img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/170546203.png" alt="mark" style="zoom:80%;" />
 <br>
 
-# TZVideo
+# TZVideo（豆瓣接口暂时挂了）
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
