@@ -1,0 +1,57 @@
+system:
+  #SDK 配置
+    speechSDK:
+        #讯飞
+        xufei:
+            enable: False
+            appid: 5f928433
+            secret_key: 3d8ed6d6dee6a3d8bbedb9731ad90569
+
+        baidu:
+            #百度
+            enable: false
+            API_KEY: aDjZLWw6zAW85vyer4IIyXnK
+            SECRET_KEY: htjpp8OmkdoUjLK05THHnPP7dI7wz0o2
+            TOKEN_URL: https://openapi.baidu.com/oauth/2.0/token
+            CREATE_URL: https://aip.baidubce.com/rpc/2.0/aasr/v1/create
+            QUERY_URL: https://aip.baidubce.com/rpc/2.0/aasr/v1/query
+            SCOPE: brain_asr_async
+
+        aliyun:
+            #阿里
+            enable: true
+            accessKeyId: LTAIlBDU4OvgrSbc
+            accessKeySecret: KdyTZsIsp8S1qGLdSVAEM2238PPFS4
+            appKey: CxsBDJNMG86LzNZn
+    web:
+        host:
+          #静态资源的ip
+            ip: speech.yuntrans.cn
+
+        http:
+            #http端口
+            port: 80
+
+        socket:
+            #socket端口
+            port: 5002
+            timeout: 20
+
+    log:
+          #日志等级 有三等， INFO ， DEBUG ， WARNNING
+        level: INFO
+        backupCount: 30
+
+    file:
+          #语音文件保存路径
+        saveDir: /home/lovemefan/disk1/lovemefan/PythonProject/webasr_python/data/
+
+    mysql:
+        db_name: translation_system
+        host: lovemefan.top
+        user: lovemefan
+        password: Tz973158
+        port: 3306
+
+    token:
+        timeout: 36000
