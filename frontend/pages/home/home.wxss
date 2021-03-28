@@ -1,0 +1,33 @@
+/* pages/home/home.wxss */
+@import "/pages/component/search/search.wxss";
+.box {
+  top: 5.5em;
+  left: auto;
+  right: auto;
+  width: 100%;
+  position: absolute;
+  /* position:fixed ;  */
+  background-color:  rgba(255, 255, 255, 0);
+  z-index: 100;
+}
+.box input {
+  background-color:  rgba(0, 0, 0, 0.1);
+}
+.content_bar {
+  top: 9em;
+  position: absolute;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-li {
+  border-radius: 12rpx;
+  width: 28%;
+  margin: 0 2.5% 40rpx;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+
+}

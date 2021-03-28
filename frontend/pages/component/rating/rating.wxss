@@ -1,0 +1,15 @@
+.itembox {
+  display: flex;
+  align-items: center;
+}
+.scorePin{
+  font-size:26rpx;
+  font-weight: 600;
+}
+ 
+.star {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 5rpx;
+  vertical-align: middle;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "片单详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

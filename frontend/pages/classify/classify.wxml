@@ -1,0 +1,6 @@
+<!--pages/classify/classify.wxml-->
+<view class="coding" >
+  <image mode="aspectFill" src="/images/coding.png" ></image>
+  <text >分类还没做</text>
+</view>
+

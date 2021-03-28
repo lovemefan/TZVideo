@@ -1,0 +1,4 @@
+<home  wx:if="{{PageCur=='home'}}"></home>
+<classify wx:if="{{PageCur=='classify'}}"></classify>
+<upgrade wx:if="{{PageCur=='upgrade'}}"></upgrade>
+<about wx:if="{{PageCur=='about'}}"></about>

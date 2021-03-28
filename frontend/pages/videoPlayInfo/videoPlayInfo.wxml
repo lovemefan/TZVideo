@@ -1,0 +1,25 @@
+<view class="videoInfo-container">
+    <!-- 视频 -->
+    <video src="{{currentUrl}}" autoplay="true" controls></video>
+
+    <!-- 视频信息 -->
+    <view class="video-detail">
+        <!-- 类型： -->
+        <view class="info-row">
+            类型：{{info.vod_class}}
+        </view>
+      
+        <!-- 更新时间 -->
+        <view class="info-row">
+            更新时间 {{info.vod_time}}
+        </view>
+    </view>
+    <scroll-view scroll-y="true" enable-flex="true" class="videos-list">
+        <block wx:for="{{movieList}}">
+            <view class="video-item shadow" data-src="{{item[1]}}" bindtap="setCurrentUrl">
+            {{item[0]}}
+            </view>
+        </block>
+    </scroll-view>
+        
+</view>

@@ -1,0 +1,19 @@
+<!--pages/moviesList/moviesList.wxml-->
+<view class="cu-card case title">
+  <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.target.id}}&title={{item.target.title}}" class="cu-item shadow" wx:for="{{moviesList.items}}" wx:key="this">
+    <view class="flex itemcard" >
+      <view class="img-container">
+        <image class="shadow flex-sub"  src="{{item.target.cover_url}}" mode="aspectFill"></image>
+      </view>
+      
+      <view class="content flex-twice ">
+        <view class="nav-title text-left text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.target.title}}</view>
+        <!-- <view class="text-sm text-left ">豆瓣评分:<text class="bg-red round light">{{item.content.subject.rating.value}}</text></view> -->
+        <view class="text-sm text-left ">{{item.target.card_subtitle}}</view>
+        
+      </view>
+    </view>
+      
+  </navigator>
+  
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "rating": "/pages/component/rating/rating"
+  },
+  "navigationBarTitleText": "详情"
+}

@@ -1,0 +1,124 @@
+/* pages/movies/movie_detail/movie_detail.wxss */
+/* pages/moviedetail/moviedetail.wxss */
+.detail-container{
+  display: flex;
+  margin: 0 auto;
+  width: 98%;
+  border-radius: 15rpx;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.img-container{
+  padding: 10rpx 0;
+  flex: 1;
+}
+.img-container image{
+  width:320rpx;
+  height: 360rpx;
+}
+.info-container{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20rpx 0 20rpx 0
+}
+.info-row{
+  font-size: 24rpx;
+  color: white
+}
+.movie-intr{
+  background-color: white;
+  font-family: fantasy;
+  color:  slategray;
+  font-size: 24rpx;
+  padding: 40rpx;
+  line-height: 40rpx
+}
+.scroll-header{
+display: flex;
+flex-direction: column;
+white-space: nowrap;   
+}
+.scroll-header view{
+border:none;
+display: inline-block;  
+}
+.scroll-header image{
+  width:200rpx;
+  height: 300rpx;
+  margin: 6rpx 6rpx 6rpx 6rpx
+}
+.act-info{
+  font-size: 28rpx;
+  margin-left: 10rpx
+}
+.act-img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10rpx
+}
+.act-img image{
+  border-radius: 10rpx;
+  height:320rpx;
+  width: 220rpx
+}
+.actor-name{
+  font-size: 26rpx
+}
+.btn-like{
+  margin: 30rpx 40rpx 20rpx 40rpx
+}
+.person-container image{
+  border-radius: 10rpx;
+}
+.click-play{
+  background-color: #dfdfdf;
+  font-size: x-large;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  height: 40%;
+  width: 80%;
+  display: flex;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  justify-content: left;
+  align-items: center;
+  font-size: medium;
+}
+
+/* pages/movieInfo/movieInfo.wxss
+
+
+
+.info-card{
+  margin-top: 1em;
+}
+.cover{
+  height:15em;
+  width:10em;
+  border-radius:5px;
+}
+.info{
+  overflow:scroll;
+  /* text-overflow: ellipsis; */
+  /* word-wrap: break-word; 
+  word-break: normal; 
+}
+.itembox {
+  display: flex;
+  align-items: center;
+}
+.scorePin{
+  font-size:26rpx;
+  font-weight: 600;
+}
+ 
+.star {
+  width: 25rpx;
+  height:25rpx;
+  /* margin: 0 px; */
+  /* vertical-align: middle;
+} */ 
