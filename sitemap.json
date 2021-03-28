@@ -1,7 +1,0 @@
-{
-  "desc": "TZVideo",
-  "rules": [{
-  "action": "allow",
-  "page": "*"
-  }]
-}

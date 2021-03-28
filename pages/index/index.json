@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "home": "/pages/home/home",
-    "classify": "/pages/classify/classify",
-    "upgrade": "/pages/upgrade/upgrade",
-    "about": "/pages/about/about"
-  }
-}
