@@ -6,11 +6,11 @@
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
-感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHu支持一下！
+感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub支持一下！
 
 由于这是作者第一个微信小程序,本人代码水平也有限,欢迎指出不足的地方
 
-[项目文档 2021.03.28](https://docs.apipost.cn/view/fe20d74e59e21501#4189496)
+[项目文档 2021.04.04](https://docs.apipost.cn/view/370d5c9238dd67ef)
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
 
