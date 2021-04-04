@@ -1,7 +1,8 @@
 <img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/170546203.png" alt="mark" style="zoom:80%;" />
 <br>
 
-# TZVideo（豆瓣接口暂时挂了,正在解决）
+# TZVideo（豆瓣接口问题已解决）
+> 截至20210404，豆瓣接口通过后端模拟手机请求已恢复使用，后续将完善接口文档
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
@@ -10,103 +11,15 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 由于这是作者第一个微信小程序,本人代码水平也有限,欢迎指出不足的地方
 
 [项目文档 2021.03.28](https://docs.apipost.cn/view/fe20d74e59e21501#4189496)
+
+豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
+
 ## 主要原理
 
 首先通过豆瓣查询影片信息,然后通过相关接口(后面附上)和爬虫提取直链
 
-## 反向代理服务器
 
 由于豆瓣检测到微信小程序发送的请求的话,豆瓣会拒绝提供服务,而小程序是无法更改user-agent的,
-
-本人使用nginx的反向代理解决这个问题
-
-配置文件如下:
-
-```bash
-events {
-    worker_connections  1024;
-}
-http{
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
-
-    #access_log  logs/access.log  main;
-
-    sendfile        on;
-    #tcp_nopush     on;
-
-    #keepalive_timeout  0;
-    keepalive_timeout  65;
-
-    #gzip  on;
-	server {
-	  listen 80;
-	  listen [::]:80;
-
-	  server_name douban.lovemefan.com;
-
-	  access_log /var/log/nginx/douban.com-access.log;
-	  error_log /var/log/nginx/douban.com-error.log;
-
-	  location / {
-		root /var/www/lovemefan;
-	  }
-
-	  location /api {
-		# 问题核心在这里
-		proxy_set_header Referer "https://www.douban.com";
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header User-Agent  "Mozilla/5.0 (Linux; Android 9;ELE-AL00 Build/HUAWEIELE-AL0001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/67.0.3396.87 XWEB/1168 MMWEBSDK/191201 Mobile Safari/537.36 MMWEBID/873 MicroMessenger/7.0.10.1580(0x27000AFE) Process/tools NetType/WIFI Language/zh_CN ABI/arm64";
-		proxy_redirect off;
-		proxy_pass  http://frodo.douban.com;
-	  }
-	}
-
-	server {
-	  listen 443 ssl;
-	  listen [::]:443 ssl;
-
-	  server_name douban.lovemefan.com;
-
-	  ssl on;
-	  ssl_certificate /home/ubuntu/3748746_douban.lovemefan.top.pem;
-	  ssl_certificate_key /home/ubuntu/3748746_douban.lovemefan.top.key;
-	  ssl_session_timeout 5m;
-	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	  ssl_prefer_server_ciphers on;
-
-	  access_log /var/log/nginx/douban.uieee.com-access.log;
-	  error_log /var/log/nginx/douban.uieee.com-error.log;
-
-	  location / {
-		root /var/www/lovemefan;
-	  }
-
-	  location /api {
-		# 问题核心在这里
-		proxy_set_header Referer "https://www.douban.com";
-		proxy_set_header User-Agent "Mozilla/5.0 (Linux; Android 9; ELE-AL00 Build/HUAWEIELE-AL0001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/67.0.3396.87 XWEB/1168 MMWEBSDK/191201 Mobile Safari/537.36 MMWEBID/873 MicroMessenger/7.0.10.1580(0x27000AFE) Process/tools NetType/WIFI Language/zh_CN ABI/arm64";
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_redirect off;
-		proxy_pass http://frodo.douban.com;
-	  }
-	  location /api-okzy {
-		# 问题核心在这里
-		proxy_set_header Referer "https://www.douban.com";
-		proxy_set_header User-Agent "Mozilla/5.0 (Linux; Android 9; ELE-AL00 Build/HUAWEIELE-AL0001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/67.0.3396.87 XWEB/1168 MMWEBSDK/191201 Mobile Safari/537.36 MMWEBID/873 MicroMessenger/7.0.10.1580(0x27000AFE) Process/tools NetType/WIFI Language/zh_CN ABI/arm64";
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_redirect off;
-		proxy_pass https://api.okzy.tv/api.php/provide/vod/at/json/;
-	  }
-	}
-}
-
-```
 
 
 
