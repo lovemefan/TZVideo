@@ -10,7 +10,7 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 
 由于这是作者第一个微信小程序,本人代码水平也有限,欢迎指出不足的地方
 
-[项目文档 2021.04.04](https://docs.apipost.cn/view/370d5c9238dd67ef)
+[项目文档 2021.04.06](https://docs.apipost.cn/view/370d5c9238dd67ef)
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
 
