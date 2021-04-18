@@ -1,6 +1,6 @@
 const util = require('util.js')
 // const APIKEY = "0dad551ec0f84ed02907ff5c42e8ec70"
-const APIKEY = "054022eaeae0b00e0fc068c0c0a2102a"
+const APIKEY = "0dad551ec0f84ed02907ff5c42e8ec70"
 // https用户代理
 const USER_AGENT = "api-client/1 com.douban.frodo/6.32.0(180) Android/22 product/R11 vendor/OPPO model/OPPO R11  rom/android  network/wifi  platform/mobile"
 const HOST = ""
@@ -67,6 +67,8 @@ const DOUBAN_TSHOW_FOREIGN = "https://douban.lovemefan.top/api/v2/subject_collec
  * 分类查询接口
  */
 
+const DOUBAN_MOVIE_RECOMMEND="https://douban.lovemefan.top/api/v2/movie/recommend"
+ 
 const DOUBAN_SEARCH_BY_TAG = "https://douban.lovemefan.top/api/v2/tv/tag"
 
 const DOUBAN_SEARCH = "https://douban.lovemefan.top/api/v2/search/movie"
@@ -83,21 +85,20 @@ function getDoubanMovieInfo(id, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_MOVIE_INFO, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_MOVIE_INFO, ts)
 
   wx.request({
     url: DOUBAN_MOVIE_INFO.replace('{}', id),
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'channel': 'Douban',
       'udid': UDID,
-      '_ts': ts,
-      '_sig': sig
+      // '_ts': ts,
+      // '_sig': sig
 
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
     },
     success(res) {
@@ -115,21 +116,19 @@ function getDoubanTvInfo(id, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_TV_INFO, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_TV_INFO, ts)
 
   wx.request({
     url: DOUBAN_TV_INFO.replace('{}', id),
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'channel': 'Douban',
       'udid': UDID,
-      '_ts': ts,
-      '_sig': sig
-
+      // '_ts': ts,
+      // '_sig': sig
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
     },
     success(res) {
@@ -149,23 +148,22 @@ function getDoubanMoviesList(start,count,id,callback){
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_MOVIES_LIST,ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_MOVIES_LIST,ts)
  
   wx.request({
     url: DOUBAN_MOVIES_LIST.replace('{}',id),
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'channel' : 'Douban',
       'udid': UDID,
-      '_ts': ts,
-      '_sig': sig
+      // '_ts': ts,
+      // '_sig': sig
   
     },
     header: {
-      'User-Agent' : USER_AGENT,
       'Host' : 'frodo.douban.com',
     },
     success(res) {
@@ -185,21 +183,20 @@ function getDoubanPlayList(start, count, category, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_NEW_PLAYLISTS, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_NEW_PLAYLISTS, ts)
 
   wx.request({
     url: DOUBAN_NEW_PLAYLISTS,
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'category': category,
-      '_sig': sig,
-      '_ts': ts
+      // '_sig': sig,
+      // '_ts': ts
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
       'Accept-Encoding': 'gzip',
     },
@@ -227,21 +224,20 @@ function getDoubanHotShow(start, count, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUABN_SHOW_HOT, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUABN_SHOW_HOT, ts)
   wx.request({
     url: DOUABN_SHOW_HOT,
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'channel': 'Douban',
       'udid': UDID,
-      '_sig': sig,
-      '_ts': ts,
+      // '_sig': sig,
+      // '_ts': ts,
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
       "Content-Type": "application/text",
     },
@@ -262,22 +258,21 @@ function getDoubanHotTv(start, count, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_TV_HOT, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_TV_HOT, ts)
   wx.request({
     url: DOUBAN_TV_HOT,
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'channel': 'Douban',
       'udid': UDID,
-      '_sig': sig,
-      '_ts': ts,
+      // '_sig': sig,
+      // '_ts': ts,
 
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
       "Content-Type": "application/text",
     },
@@ -298,22 +293,21 @@ function getDoubanHotMovie(start, count, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_MOVIE_HOT, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_MOVIE_HOT, ts)
   wx.request({
     url: DOUBAN_MOVIE_HOT,
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'channel': 'Douban',
       'udid': UDID,
-      '_sig': sig,
-      '_ts': ts,
+      // '_sig': sig,
+      // '_ts': ts,
 
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
       "Content-Type": "application/text",
     },
@@ -333,22 +327,21 @@ function getDoubanHotAnimation(start, count, callback) {
   wx.showLoading({
     title: '加载中',
   })
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_TV_ANIMATION, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_TV_ANIMATION, ts)
   wx.request({
     url: DOUBAN_TV_ANIMATION,
     data: {
-      'apikey': APIKEY,
+      // 'apikey': APIKEY,
       'start': start,
       'count': count,
       'channel': 'Douban',
       'udid': UDID,
-      '_sig': sig,
-      '_ts': ts,
+      // '_sig': sig,
+      // '_ts': ts,
 
     },
     header: {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
       "Content-Type": "application/text",
     },
@@ -371,19 +364,18 @@ function getDoubanHotAnimation(start, count, callback) {
  */
 function searchSuggestion(query) {
   let that = this;
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_SEARCH_SUGGESTION, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_SEARCH_SUGGESTION, ts)
   return util.request(DOUBAN_SEARCH_SUGGESTION, {
     'q': query,
-    'apikey': APIKEY,
+    // 'apikey': APIKEY,
     'count': 20,
     'channel': 'Douban',
     'udid': UDID,
-    '_sig': sig,
-    '_ts': ts,
+    // '_sig': sig,
+    // '_ts': ts,
   }, 
   {
-      'User-Agent': USER_AGENT,
       'Host': 'frodo.douban.com',
   })
 
@@ -396,20 +388,38 @@ function searchSuggestion(query) {
  */
 function getSearchList(query) {
   let that = this;
-  var ts = util.getTimeStamp()
-  var sig = util.makeSignature(DOUBAN_SEARCH, ts)
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_SEARCH, ts)
   return util.request(DOUBAN_SEARCH, {
     'q': query,
-    'apikey': APIKEY,
+    // 'apikey': APIKEY,
     'count': 20,
     'channel': 'Douban',
     'udid': UDID,
-    '_sig': sig,
-    '_ts': ts,
+    // '_sig': sig,
+    // '_ts': ts,
   })
 
 }
+/**
+ * @description: 根据标签查询电影推荐
+ * @param {string} tag tag为筛选标签,用逗号隔开,如 tag='华语,喜剧,2020'
+ * @return: 
+ */
+function getMovieRecommend(tag,start=0,count=8){
+  let that = this
+  // var ts = util.getTimeStamp()
+  // var sig = util.makeSignature(DOUBAN_SEARCH, ts)
+  return util.request(DOUBAN_MOVIE_RECOMMEND, {
+    'tags': tag,
+    // 'apikey': APIKEY,
+    'start': start,
+    'count': count,
+    // '_sig': sig,
+    // '_ts': ts,
+  })
 
+}
 module.exports = {
   getDoubanPlayList : getDoubanPlayList,
   getDoubanHotTv : getDoubanHotTv,
@@ -420,5 +430,6 @@ module.exports = {
   getDoubanMovieInfo: getDoubanMovieInfo,
   getDoubanTvInfo: getDoubanTvInfo,
   searchSuggestion: searchSuggestion,
-  getSearchList: getSearchList
+  getSearchList: getSearchList,
+  getMovieRecommend:getMovieRecommend
 }

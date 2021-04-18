@@ -20,29 +20,45 @@
     margin-top: 5rpx;
     font-size: 28rpx;
     margin-bottom: 50rpx;
+    margin-left: 20rpx ;
 }
 
 .video-detail text {
     margin-left: 15rpx;
 }
-.videos-list{
+
+.video-detail .info-info{
+    color: gray;
+}
+.vides-list-contaier{
+    padding:0 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vides-list-contaier .videos-list{
+    padding: 20rpx;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    height: 800rpx;
+    align-items: center;
 
-  
 }
 .video-item{
 
     min-width: 20%;
     background-color: #dfdfdf;
-    border-radius: 2%;
+    border-radius: 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin:20rpx ;
+    margin: 20px;
     padding: 20rpx;
     height:100rpx ;
     width: 150rpx ;
+}
+.rate-box{
+    display: flex;
+    padding: 20rpx;
+    zoom: 80%;
 }

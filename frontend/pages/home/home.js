@@ -11,9 +11,9 @@ Page({
    */
   data: {
     // 当前tab
-    TabCur: 0,
+    TabCur: '0',
     scrollLeft: 0,
-    
+    modalIsShow: false,
     startIndex:[0,0,0,0,0],
     // 当前片单,热剧,电影,综艺,动漫显示数量,下拉增加
     countIndex: [15,15,15,15,15],
@@ -21,13 +21,21 @@ Page({
       view:{
         isShow: false
       }
-    }
+    },
+    timer:null,
+    playLists:[],
+    hotTv:[],
+    hotShow:[],
+    hotMovie:[],
+    hotAnimation:[]
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 显示弹窗
+    this.showModal()
     this.flushPlayList()
     //初始化的时候渲染测试
     searchComponent.init(this, 43, ['weappdev', '小程序', 'wxParse', 'wxSearch', 'wxNotification']);
@@ -75,34 +83,65 @@ Page({
   onReachBottom: function () {
     switch (this.data.TabCur) {
       case '0':
-        this.data.countIndex[0] = this.data.countIndex[0] + 15
+        this.data.startIndex[0] = this.data.startIndex[0] + 15
         this.flushPlayList(this.data.startIndex[0],this.data.countIndex[0])
         break
 
       case '1':
         console.log('1')
-        this.data.countIndex[1] = this.data.countIndex[1] + 15
+        this.data.startIndex[1] = this.data.startIndex[1] + 15
         this.flushHotTv(this.data.startIndex[1], this.data.countIndex[1])
         break
 
       case '2':
-        this.data.countIndex[2] = this.data.countIndex[2] + 15
+        this.data.startIndex[2] = this.data.startIndex[2] + 15
         this.flushHotMovie(this.data.startIndex[2], this.data.countIndex[2])
         break
 
       case '3':
-        this.data.countIndex[3] = this.data.countIndex[3] + 15
+        this.data.startIndex[3] = this.data.startIndex[3] + 15
         this.flushHotShow(this.data.startIndex[3], this.data.countIndex[3])
         break
 
       case '4':
-        this.data.countIndex[4] = this.data.countIndex[4] + 15
+        this.data.startIndex[4] = this.data.startIndex[4] + 15
         this.flushHotAnimation(this.data.startIndex[4], this.data.countIndex[4])
         break
 
     }
+    wx.hideLoading()
   },
-
+  /**
+   * 显示弹窗
+   * 
+   */
+  showModal() {
+    let that = this
+    wx.getStorage({
+      key: 'modalIsShow',
+      success (res) {
+        that.setData({
+          modalIsShow: res.data
+        })
+        console.log(res.data)
+      },
+      fail (res){
+        that.setData({
+          modalIsShow: true
+        })
+      }
+    })
+    
+  },
+  hideModal(e) {
+    wx.setStorage({
+      key:"modalIsShow",
+      data: false
+    })
+    this.setData({
+      modalIsShow: false
+    })
+  },
   /**
    * 用户点击右上角分享
    */
@@ -116,16 +155,17 @@ Page({
     var that = this
     console.log('----------test---------')
     // 当前数据为空或返回数据状态异常
-
+    
     if (typeof (that.data.playLists) == "undefined" || this.playListCode != '200') {
 
       douban.getDoubanPlayList(start, count, "selected", (res) => {
+  
         that.setData({
-          playLists: res.data,
+          playLists: that.data.playLists.concat(res.data.data[0].items),
           playListCode: res.statusCode
         })
         // this.datas.lists = res.data  
-        console.log(res.data)
+        console.log(that.data.playLists)
         wx.hideLoading()
         return true
       })
@@ -143,7 +183,7 @@ Page({
 
       douban.getDoubanHotTv(start, count, (res) => {
         that.setData({
-          hotTv : res.data,
+          hotTv : that.data.hotTv.concat(res.data.subject_collection_items),
           hotTvCode:res.statusCode
         })
         // this.datas.lists = res.data
@@ -164,7 +204,7 @@ Page({
 
       douban.getDoubanHotShow(start, count, (res) => {
         that.setData({
-          hotShow: res.data,
+          hotShow: that.data.hotShow.concat(res.data.subject_collection_items),
           hotShowCode: res.statusCode
         })
         // this.datas.lists = res.data
@@ -185,7 +225,7 @@ Page({
 
       douban.getDoubanHotMovie(start, count, (res) => {
         that.setData({
-          hotMovie: res.data,
+          hotMovie: that.data.hotMovie.concat(res.data.subject_collection_items),
           hotMovieCode: res.statusCode
         })
         // this.datas.lists = res.data
@@ -206,7 +246,7 @@ Page({
 
       douban.getDoubanHotAnimation(start, count, (res) => {
         that.setData({
-          hotAnimation: res.data,
+          hotAnimation: that.data.hotAnimation.concat(res.data.subject_collection_items),
           hotAnimationCode: res.statusCode
         })
         // this.datas.lists = res.data
@@ -286,13 +326,21 @@ Page({
     searchComponent.wxSearchAddHisKey(that);
     
   },
+  // 输入框防抖处理
   wxSearchInput: function(e){
     var that = this
-    searchComponent.wxSearchInput(e,that);
+    if(this.data.timer){
+      clearTimeout(this.data.timer)
+    }
+    this.data.timer = setTimeout(() => {
+      searchComponent.wxSearchInput(e,that);
+    }, 500);
+    
   },
+
   wxSerchFocus: function(e){
-    var that = this
-    searchComponent.wxSearchFocus(e,that);
+    
+    searchComponent.wxSearchFocus(e,this)
   },
   wxSearchBlur: function(e){
     var that = this

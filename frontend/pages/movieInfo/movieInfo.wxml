@@ -32,7 +32,7 @@
   <scroll-view scroll-x class="scroll-header" >
       <view class="act-img" wx:for="{{movieInfo.actors}}"  wx:key="{{item.id}}">
       <view>
-          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage" bindtap="previewActors">
+          <image mode="aspectFill" data-src="{{item.avatar.large}}" src="{{item.avatar.large}}" bindtap="previewImage">
           </image>
           <text class="actor-name">  
               {{item.name}}
@@ -40,9 +40,9 @@
       </view>
       </view>
 </scroll-view>
-<view wx:if="{{moviesResources.total==0}}">暂无资源</view>
-<navigator wx:if="{{moviesResources.total>0}}" wx:for="{{moviesResources.list}}" class="click-play shadow" url="/pages/videoPlayInfo/videoPlayInfo?title={{item.vod_name}}&vod_id={{item.vod_id}}&type_id={{item.type_id}}">
-  <text class="cuIcon-videofill">    </text>
-  {{item.vod_name}}
+<view wx:if="{{moviesResources.total==0}}" class="no-resources">暂无资源</view>
+<navigator wx:if="{{moviesResources.data.length>0}}" wx:for="{{moviesResources.data}}" class="click-play shadow" url="/pages/videoPlayInfo/videoPlayInfo?title={{item.vod_name}}&vod_id={{item.vod_id}}&type_id={{item.type_id}}">
+  <text class="cuIcon-videofill lable">    </text>
+        {{item.vod_name}}
 </navigator>
 </view>

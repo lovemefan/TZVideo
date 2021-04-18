@@ -18,14 +18,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f2f4f5",
     "navigationBarTitleText": "TZVideo",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "slategray",
     "selectedColor": "#1296db",
-    "backgroundColor": "#efeeee",
+    "backgroundColor": "#f1f1f1",
     "list": [
       {
         "text": "首页",
@@ -34,17 +34,12 @@
         "selectedIconPath": "images/tabbar/home_cur.png"
       },
       {
-        "text": "分类",
+        "text": "找片",
         "pagePath": "pages/classify/classify",
-        "iconPath": "images/tabbar/classify.png",
-        "selectedIconPath": "images/tabbar/classify_cur.png"
+        "iconPath": "images/tabbar/recommend.png",
+        "selectedIconPath": "images/tabbar/recommend_cur.png"
       },
-      {
-        "text": "更新",
-        "pagePath": "pages/upgrade/upgrade",
-        "iconPath": "images/tabbar/upgrade.png",
-        "selectedIconPath": "images/tabbar/upgrade_cur.png"
-      },
+     
       {
         "text": "我的",
         "pagePath": "pages/about/about",

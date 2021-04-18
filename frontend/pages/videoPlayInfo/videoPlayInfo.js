@@ -27,8 +27,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
+  onReady: function (e) {
+    this.VideoContext = wx.createVideoContext('player')
   },
 
   /**
@@ -78,26 +78,34 @@ Page({
       this.setData({
         moviesResources:res
       })
+      console.log(res)
       this.getMovieList()
     })
   },
   //获取播放链接
   getMovieList:function() {
     var res 
-    this.data.moviesResources.list.forEach(element => {
-  
+    let that = this
+    console.log('查看列表')
+    console.log(this.data.moviesResources.data)
+    this.data.moviesResources.data.forEach(element => {
+        
       // 判断在电影信息界面传来的参数是否与查询的电影细节信息一致
-        if(this.data.vod_id==element.vod_id && element.type_id==this.data.type_id)
+        if(that.data.vod_id==element.vod_id)
         {
-          res = element.vod_play_url
-          this.data.info = element
+          res = 
+          that.setData({
+            info:element,
+            vod_urls: element.vod_url
+          })
         }
     });
-    console.log(this.data.info)
+   
     var list = []
-    if(res){
-      let item = res.split("$$$")[1]
-      item = item.split("#")
+    if(this.data.vod_urls){
+      console.log(typeof( this.data.vod_urls))
+      let item = this.data.vod_urls
+      item = item.split("↵")
       item.forEach(element => {
         list.push(element.split("$"))
       });
@@ -105,6 +113,7 @@ Page({
       
     }
     console.log(list)
+  
     this.setData({
       movieList:list,
       currentUrl:list[0][1]
@@ -115,7 +124,22 @@ Page({
     this.setData({
       currentUrl : url
     })
+    wx.setNavigationBarTitle({
+      title: this.data.title + e.target.dataset.name
+    })
   },
-  
+  /**
+   * 倍速播放
+   * @param {*} e 
+   */
+  bindButtonRate:function(e){
+    let rate = e.currentTarget.dataset.rate
+    wx.showToast({
+      title: '当前为倍速' + rate,
+      icon: "none",
+      duration: 2000
+    })
+    this.VideoContext.playbackRate(Number(rate))
+  }
 
 })

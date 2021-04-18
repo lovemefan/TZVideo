@@ -34,23 +34,11 @@ Page({
       urls: [current]// 需要预览的图片http链接列表  
     })
   },
-  previewActors: function (e) {
-    var current = e.target.dataset.src;
-    console.log(current)
-    var actors = this.data.actors;
-    let urls = []
-    for (var actor in actors) {
-      urls.push(actors[actor].cover_url);
-    }
-    wx.previewImage({
-      current: current, // 当前显示图片的http链接  
-      urls: urls// 需要预览的图片http链接列表  
-    })
-  },
   onLoad: function (options) {
     this.setData({
       id: options.id,
-      title :options.title
+      title: options.title,
+      type: options.type
     })
     
     this.getMovieInfo(this.data.id)
@@ -117,18 +105,29 @@ Page({
   },
   getMovieInfo: function (id) {
     var that = this
-    douban.getDoubanMovieInfo(id, (res) => {
-      that.setData({
-        movieInfo: res.data,
-        actors: res.data.actors
+    if(this.data.type == 'movie') {
+      douban.getDoubanMovieInfo(id, (res) => {
+        that.setData({
+          movieInfo: res.data
+        })
+        wx.hideLoading()
+        console.log(res.data)
+        return true
       })
-      wx.hideLoading()
-      console.log(res.data)
-      return true
-    })
+    }else{
+      douban.getDoubanTvInfo(id, (res) => {
+        that.setData({
+          movieInfo: res.data
+        })
+        wx.hideLoading()
+        console.log(res.data)
+        return true
+      })
+    }
+    
   },
   getMoviesResource:function(query){
-    scawler.getMoviesResource(query.replace(' ',''),'list').then((res)=>{
+    scawler.getMoviesResource(query.replace(' ',''), 'list').then((res)=>{
       console.log("获取资源中...")
       console.log(res)
       this.setData({

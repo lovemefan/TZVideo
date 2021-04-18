@@ -107,7 +107,6 @@ Page({
        moviesList: res.data,
       })
       wx.hideLoading()
-      wx.hideLoading();
       console.log(res.data)
       return true
     })

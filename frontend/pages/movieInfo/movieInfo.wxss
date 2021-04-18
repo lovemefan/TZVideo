@@ -15,7 +15,7 @@
 }
 .img-container image{
   width:320rpx;
-  height: 360rpx;
+  height: 220rpx
 }
 .info-container{
   flex: 2;
@@ -25,6 +25,7 @@
   margin: 20rpx 0 20rpx 0
 }
 .info-row{
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 24rpx;
   color: white
 }
@@ -88,7 +89,14 @@ display: inline-block;
   align-items: center;
   font-size: medium;
 }
-
+.no-resources{
+  font-weight: 800;
+  font-size: larger;
+}
+.lable{
+  padding-left: 10rpx;
+  padding-right: 5rpx;
+}
 /* pages/movieInfo/movieInfo.wxss
 
 

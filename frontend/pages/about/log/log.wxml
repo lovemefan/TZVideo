@@ -1,2 +1,83 @@
-<!--pages/about/log/log.wxml-->
-<text>pages/about/log/log.wxml</text>
+<view class="cu-timeline">
+  <view class="cu-time">2021-01-14</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.7</view>
+      </view>
+      <view class="margin-top">部分接口变动修复</view>
+    </view>
+  </view>
+ <view class="cu-time">2020-12-30</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.6</view>
+      </view>
+      <view class="margin-top">修复了不能搜索的bug</view>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.5</view>
+      </view>
+      <view class="margin-top">部分接口变了,调整部分参数,换了服务器,网速会比原来慢一点</view>
+    </view>
+  </view>
+
+  <view class="cu-time">2020-10-02</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.4</view>
+      </view>
+      <view class="margin-top">添加倍速播放的功能,</view>
+    </view>
+  </view>
+  <view class="cu-time">2020-10-01</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.3</view>
+      </view>
+      <view class="margin-top">重写下拉懒加载逻辑,修复第一次打开主界面懒加载失效的bug</view>
+    </view>
+  </view>
+  <view class="cu-time">2020-06-08</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.2</view>
+      </view>
+      <view class="margin-top">添加找片模块,添加下拉懒加载功能</view>
+    </view>
+  </view>
+  <view class="cu-time">2020-06-06</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.1</view>
+      </view>
+      <view class="margin-top">修复搜索框抖动的bug,调整一些UI</view>
+    </view>
+  </view>
+  <view class="cu-time">2020-05-26</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.0</view>
+      </view>
+      <view class="margin-top">完成搜索,首页,播放功能</view>
+    </view>
+  </view>
+  
+</view>

@@ -1,6 +1,72 @@
 <!--pages/classify/classify.wxml-->
-<view class="coding" >
-  <image mode="aspectFill" src="/images/coding.png" ></image>
-  <text >分类还没做</text>
+<image src='/images/classify.png' mode='widthFix' class='backgroud' ></image>
+<view class="classify-board">
+  <scroll-view scroll-x>
+    <view class="board-bar">
+      <view  class="bar-item bg-unselected red shadow" data-index='0' data-tag="{{tags[0].type}}">{{tags[0].type}}</view>
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[0]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='0' wx:key="tag" wx:for="{{tags[0].data}}" data-tag="{{item}}">{{item}}</view>
+      
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x> 
+    <view class="board-bar">
+      <view class="bar-item bg-unselected red shadow" data-index='1' data-tag="{{tags[1].type}}">{{tags[1].type}}</view>
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[1]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='1' wx:key="tag" wx:for="{{tags[1].data}}" data-tag="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+  
+  <scroll-view scroll-x>
+    <view class="board-bar">
+      
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[2]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='2' wx:key="tag" wx:for="{{tags[2].data}}" data-tag="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+  
+  <scroll-view scroll-x>
+    <view class="board-bar">
+     
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[3]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='3' wx:key="tag" wx:for="{{tags[3].data}}" data-tag="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view scroll-x>
+    <view class="board-bar">
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[4]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='4' wx:key="tag" wx:for="{{tags[4].data}}" data-tag="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+  
+  <view class="movies-list"> 
+    <block wx:key="items" wx:for="{{items}}">
+      <navigator open-type="navigate" hover-class='none' url="/pages/moviesList/moviesList?id={{item.id}}&bg={{item.cover_url}}&title={{item.title}}" class="shadow" >
+        <view wx:if="{{item.type=='playlist'}}">
+          <view class="playlist shadow">
+            <image src="{{item.cover_url}}" mode="aspectFill"></image>
+            <view class="playlist-info">
+              <text style="color:gray">豆瓣片单</text>
+              <view class="playlist-title">{{item.title}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="shadow" >
+        <view wx:if="{{item.type=='movie'}}">
+          <view class="movie-pictures">
+            <image class="movies-pic" src="{{item.pic.normal}}" mode="aspectFill"></image>
+            <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+              <swiper-item  wx:for="{{item.photos}}" wx:for-item="photos" wx:key="this">
+                <image src="{{photos}}" mode="aspectFill" ></image>
+              </swiper-item>
+            </swiper>
+          </view>
+          <view class="movie-info">
+            <view class="movie-title">{{item.title}}</view>
+            <text class="movie-rating">{{item.rating.value}}</text>
+            <view class="movie-comment">{{item.comment.comment}}</view>
+          </view>
+        </view>
+      </navigator>
+      
+    </block>
+  </view>
 </view>
 

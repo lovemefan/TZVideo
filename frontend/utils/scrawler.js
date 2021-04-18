@@ -23,10 +23,9 @@ function getMoviesResource(quary,ac="detail"){
       'wd': quary,
       'ac':ac
     })
-  
 }
 
-  
+
 module.exports = { 
  getMoviesResource:getMoviesResource
 }

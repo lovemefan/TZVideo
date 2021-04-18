@@ -1,10 +1,30 @@
 <!--pages/home/home.wxml-->
 <import src="/pages/component/search/search.wxml"/>
+<!-- 更新信息弹窗 -->
+<view class="cu-modal {{modalIsShow==true?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">TZVideo更新</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <view class='margin-top-xl declare'>
+        TZVideo1.6 由于最近忙于其他项目,小程序的功能一直处于残缺状态.
+        今天终于有时间修复了不能搜索的bug.后续会进入很长一段时间的维护期.有时间随缘更新.
+      </view>
+      <view style="float:right;bottom:100px">2020年12月30日</view>
+    </view>
+  </view>
+</view>
+
+
 <view class="box" >
   <view class="cu-bar search gradualBlue">
     <view class="search-form round">
     <text class="cuIcon-search"></text>
-      <input type="text" bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindconfirm="searchConfirm" placeholder="搜索图片、文章、视频" bindconfirm="wxSearchFn" bindblur="wxSearchBlur" confirm-type="search" value="{{wxSearchData.value}}"></input>
+      <input type="text" bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindconfirm="searchConfirm" placeholder="搜索视频" bindconfirm="wxSearchFn" bindblur="wxSearchBlur" confirm-type="search" value="{{wxSearchData.value}}"></input>
       
     </view>
   </view>
@@ -39,24 +59,24 @@
 <scroll-view scroll-y class="scrollPage" style="margin-bottom:5em;">
 <!-- 片单 -->
   <view wx:if="{{TabCur==0}}" class="nav-list" >
-    <navigator open-type="navigate" hover-class='none' url="/pages/moviesList/moviesList?id={{item.id}}&bg={{item.bg_image}}&title={{item.title}}" class="nav-li shadow" wx:for="{{playLists.data[0].items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/moviesList/moviesList?id={{item.id}}&bg={{item.bg_image}}&title={{item.title}}" class="nav-li shadow" wx:for="{{playLists}}" wx:key="this">
       <image class="shadow" style="height:8em;width:8em;"  src="{{item.cover_url}}" mode="aspectFit"></image>
       <view class="nav-title" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
-      <view class="text-ls text-left"><text class="bg-gray  light round">共{{item.total}}部</text></view>
+      <view class="text-ls text-left"><text class="bg-gray  light round">共{{item.items_count}}部</text></view>
     </navigator>
   </view>
 <!-- 电视剧 -->
   <view wx:if="{{TabCur==1}}" class="nav-list" >
   
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotTv.subject_collection_items}}" wx:key="this">
-      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}type=tv" class="nav-li" wx:for="{{hotTv}}" wx:key="this">
+      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.pic.normal}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
     </navigator>
   </view>
 <!-- 电影 -->
   <view wx:if="{{TabCur==2}}" class="nav-list" >
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotMovie.subject_collection_items}}" wx:key="this">
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}&type=movie" class="nav-li" wx:for="{{hotMovie}}" wx:key="this">
         <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
         <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
         <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
@@ -65,16 +85,16 @@
   </view>
 <!-- 综艺 -->
   <view wx:if="{{TabCur==3}}" class="nav-list">
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotShow.subject_collection_items}}" wx:key="this">
-      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}&type=tv" class="nav-li" wx:for="{{hotShow}}" wx:key="this">
+      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.pic.normal}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
     </navigator>
   </view>
 <!-- 动漫 -->
   <view wx:if="{{TabCur==4}}" class="nav-list">
-    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}" class="nav-li" wx:for="{{hotAnimation.subject_collection_items}}" wx:key="this">
-      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.cover.url}}" mode="aspectFit"></image>
+    <navigator open-type="navigate" hover-class='none' url="/pages/movieInfo/movieInfo?id={{item.id}}&title={{item.title}}&type=tv" class="nav-li" wx:for="{{hotAnimation}}" wx:key="this">
+      <image class="shadow" style="height:12em;width:12em;border-radius:10px;"  src="{{item.pic.normal}}" mode="aspectFit"></image>
       <view class="nav-title text-center text-bold text-lg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.title}}</view>
       <view class="text-sm text-center round">豆瓣评分:<text class="bg-red  light">{{item.rating.value}}</text></view>
     </navigator>

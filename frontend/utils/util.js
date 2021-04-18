@@ -188,6 +188,10 @@ function getTimeStamp(){
 
 const douban = require('douban.js')
 
+import axios from 'axios'
+import mpAdapter from 'axios-miniprogram-adapter'
+axios.defaults.adapter = mpAdapter
+
 /**
  * @description: 活到老学到老,为了提高代码质量 封装封装微信的的request
  * @param {string} url 
@@ -196,25 +200,39 @@ const douban = require('douban.js')
  * @param {string} method 默认为GET
  * @return: 
  */
-function request(url, data = {}, header = {}, method = "GET") {
+function request(url, data = {}, header = {}, method = "POST") {
   let that = this
 
   return new Promise(function (resolve, reject) {
     console.log(header)
-    wx.request({
+
+    axios.request({
       url: url,
-      data: data,
+      params: data,
       method: method,
-      header: header,
-      success: function (res) {
-        console.log("success");
-            resolve(res.data);
-      },
-      fail: function (err) {
-        reject(err)
-        console.log("failed")
-      }
+      header: header
     })
+    .then(resp => {
+      console.log('axios.request GET请求带参数成功:', resp)
+      resolve(resp.data);
+    }).catch(({message, name, config, code, stack, request , response}) => {
+      console.log(`捕获到了异常：${message}\n ${name} \n ${config} \n ${code}\n`,request , response)
+      reject(response)
+    })
+
+    // wx.request({
+    //   url: url,
+    //   data: data,
+    //   method: method,
+    //   header: header,
+    //   success: function (res) {
+    //       resolve(res.data);
+    //   },
+    //   failed: function (err) {
+    //     reject(err)
+    //     console.log("failed")
+    //   }
+    // })
   });
 }
 module.exports = {

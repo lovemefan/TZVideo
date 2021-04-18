@@ -1,17 +1,9 @@
 <scroll-view scroll-y class="scrollPage">
  <view class="UCenter-bg">
-    <view class="userinfo">
-    
-    <button wx:if="{{!hasUserInfo && canIUse}}" class="cu-avatar xl round" open-type="userLogin" bindtap="userLogin" style=" font-size: 1.5em; background:#62c2ff">Login</button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="cu-avatar xl round" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
     <view class="margin-top-sm">
     </view>
     <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
-  </view>
+ </view>
  
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     

@@ -1,1 +1,6 @@
 /* pages/about/aboutus/aboutus.wxss */
+.png{
+  height: 400rpx;
+  width: 400rpx;
+  margin: 0 15%;
+}

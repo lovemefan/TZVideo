@@ -1,12 +1,16 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">关于</view></cu-custom>
 <view class='margin-xl bg-white padding-xl radius shadow-lg'>
   <view class='text-center margin-bottom text-lg  text-grey'>关于TZVideo</view>
   <view class='text-content'>
+    <image src="/images/logo.png" class="png" mode="aspectFit"></image>
     <view>Hi！欢迎使用TZVideo</view>
     <view class='margin-top-sm'>TZVideo你的追剧小助手 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站.</view>
-    <view class='margin-top-sm'>首先感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHu支持一下！</view>
-    <view class='margin-top-sm'></view>
+    <view class='margin-top-sm'>首先感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub支持一下！</view>
+    <text class='margin-top-sm'> TZVideo由于涉及个人小程序未允许内容,并未上线,并且此小程序仅为体验版,体验人数有限.</text>
+    <view class='margin-top-sm'> 此小程序的初衷是锻炼技术以及满足自己和朋友家人看剧的需求,此声明不会对你以后看剧有任何影响.</view>
+    <view class='margin-top-sm'> 关于数据安全方面的问题,,除了图片和视频,其他流量都会经过我的服务器,我也不会记录浏览痕迹,我连历史记录的功能都没做,怎么记录.</view>
+    <text class='margin-top-sm'>如果有什么意见或建议可以邮件联系:lovemefan@outlook.com</text>
     <view class='margin-top-sm'>更多功能敬请期待！</view>
-    <view style="float:right;bottom:100px">2020年3月14日</view>
+    <view class='margin-top-sm'>开发人员名单:lovemefan,Memory、项目地址 https://github.com/lovemefan/TZVideo</view>
+    <view style="float:right;bottom:100px">2020年6月6日</view>
   </view>
 </view>
