@@ -33,11 +33,12 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 ## UI及功能
 
 ![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/home.png)
-![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_dm.png)
-![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_movie.png)
-![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_tv.png)
-![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_zy.png)
-![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/recomend.png)
+![hot_dm](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_dm.png)
+![hot_movie](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_movie.png)
+![hot_tv](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_tv.png)
+![hot_zy](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_zy.png)
+![recommend](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/recommend.png)
+![my](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/my.png)
 
 
 ## 功能预期
