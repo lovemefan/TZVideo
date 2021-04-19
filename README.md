@@ -32,9 +32,13 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 
 ## UI及功能
 
-<img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/154039165.jpg" alt="mark" style="zoom: 50%;" /><img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/154124660.jpg" alt="mark" style="zoom:50%;" /><img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/154752201.jpg" alt="mark" style="zoom:50%;" />
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/home.png)
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_dm.png)
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_movie.png)
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_tv.png)
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/hot_zy.png)
+![home](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/recomend.png)
 
-<img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/154832377.jpg" alt="mark" style="zoom:50%;" /><img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/154848531.jpg" alt="mark" style="zoom:50%;" /><img src="http://pan-lovemefan.oss-cn-shenzhen.aliyuncs.com/blog/20201019/155157640.png" alt="mark" style="zoom:50%;" />
 
 ## 功能预期
 
