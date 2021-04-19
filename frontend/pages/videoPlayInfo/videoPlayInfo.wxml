@@ -1,31 +1,32 @@
 <view class="videoInfo-container">
     <!-- 视频 -->
     <video id="player" src="{{currentUrl}}" autoplay="true" show-casting-button="true" page-gesture="true" enable-progress-gesture="true" enable-play-gesture="true" controls></video>
-    <view class="rate-box">
-        <button class="shadow" bindtap="bindButtonRate" data-rate='0.5'>倍速0.5</button>
-        <button class="shadow" bindtap="bindButtonRate" data-rate='1'>倍速1</button>
-        <button class="shadow" bindtap="bindButtonRate" data-rate='1.5'>倍速1.5</button>
-        <button class="shadow" bindtap="bindButtonRate" data-rate='2.0'>倍速2.0</button>
+    <view class="flex">
+        <button class="flex-sub padding-sm margin-xs shadow cu-btn line-brown" bindtap="bindButtonRate" data-rate='0.5'>倍速0.5</button>
+        <button class="flex-sub padding-sm margin-xs shadow cu-btn line-brown" bindtap="bindButtonRate" data-rate='1'>倍速1</button>
+        <button class="flex-sub padding-sm margin-xs shadow cu-btn line-brown" bindtap="bindButtonRate" data-rate='1.5'>倍速1.5</button>
+        <button class="flex-sub padding-sm margin-xs shadow cu-btn line-brown" bindtap="bindButtonRate" data-rate='2.0'>倍速2.0</button>
     </view>
     <!-- 视频信息 -->
     <view class="video-detail">
         <!-- 类型： -->
         <view class="info-row">
-            类型：{{info.vod_class}}
+            类型：{{info.list_name}}
         </view>
       
         <!-- 更新时间 -->
         <view class="info-row">
-            更新时间 {{info.vod_time}}
+            更新时间 {{info.vod_addtime}}
         </view>
         <view class="info-info">
-            {{info.vod_blurb}}
+            {{info.vod_content}}
         </view>
     </view>
+    <button class="cu-btn line-cyan shadow order-botton" bindtap="reverseList" data-rate='0.5' data-order='正序'>{{curOrder}}</button>
     <view class="vides-list-contaier">
         <scroll-view scroll-y="true" enable-flex="true" class="videos-list">
             <block wx:for="{{movieList}}">
-                <view class="video-item shadow" data-name="{{item[0]}}" data-src="{{item[1]}}" bindtap="setCurrentUrl">
+                <view class="video-item shadow cu-btn bg-grey light lg" data-name="{{item[0]}}" data-src="{{item[1]}}" bindtap="setCurrentUrl">
                 {{item[0]}}
                 </view>
             </block>

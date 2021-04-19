@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      curOrder: '正序'
   },
 
   /**
@@ -93,7 +93,7 @@ Page({
       // 判断在电影信息界面传来的参数是否与查询的电影细节信息一致
         if(that.data.vod_id==element.vod_id)
         {
-          res = 
+          
           that.setData({
             info:element,
             vod_urls: element.vod_url
@@ -142,6 +142,23 @@ Page({
       duration: 2000
     })
     this.VideoContext.playbackRate(Number(rate))
-  }
+  },
 
+  reverseList: function(e){
+    let that = this
+    let order = e.currentTarget.dataset.order
+    console.log(e)
+    if(this.data.curOrder=='正序'){
+      this.setData({
+        curOrder: '倒序'
+      })
+    }else{
+      this.setData({
+        curOrder: '正序'
+      })
+    }
+    this.setData({
+      movieList: that.data.movieList.reverse()
+    })
+  }
 })
