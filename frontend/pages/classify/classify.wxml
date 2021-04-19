@@ -4,36 +4,25 @@
   <scroll-view scroll-x>
     <view class="board-bar">
       <view  class="bar-item bg-unselected red shadow" data-index='0' data-tag="{{tags[0].type}}">{{tags[0].type}}</view>
-      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[0]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='0' wx:key="tag" wx:for="{{tags[0].data}}" data-tag="{{item}}">{{item.text}}</view>
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[0].text==item.text? 'bg-selected' : 'bg-unselected'}} shadow" data-index='0' data-type='tag' wx:key="tag" wx:for="{{tags[0].data}}" data-tag="{{item}}">{{item.text}}</view>
       
     </view>
   </scroll-view>
   <scroll-view scroll-x> 
     <view class="board-bar">
       <view class="bar-item bg-unselected red shadow" data-index='1' data-tag="{{tags[1].type}}">{{tags[1].type}}</view>
-      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[1]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='1' wx:key="tag" wx:for="{{tags[1].data}}" data-tag="{{item}}">{{item.text}}</view>
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[1].text==item.text? 'bg-selected' : 'bg-unselected'}} shadow" data-index='1' data-type='tag' wx:key="tag" wx:for="{{tags[1].data}}" data-tag="{{item}}">{{item.text}}</view>
     </view>
   </scroll-view>
   
   <scroll-view scroll-x>
     <view class="board-bar">
       
-      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[2]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='2' wx:key="tag" wx:for="{{tags[2].data}}" data-tag="{{item}}">{{item.text}}</view>
+      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{cursort[0].text==item[0]? 'bg-selected' : 'bg-unselected'}} shadow" data-index='2' data-type='sort' wx:key="tag" wx:for="{{sorts}}" data-sort="{{item}}">{{item[0]}}</view>
     </view>
   </scroll-view>
   
-  <scroll-view scroll-x>
-    <view class="board-bar">
-     
-      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[3]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='3' wx:key="tag" wx:for="{{tags[3].data}}" data-tag="{{item}}">{{item.text}}</view>
-    </view>
-  </scroll-view>
-
-  <scroll-view scroll-x>
-    <view class="board-bar">
-      <view bindtap="getMovieRecommendByTapTags" class="bar-item {{curtags[4]==item? 'bg-selected' : 'bg-unselected'}} shadow" data-index='4' wx:key="tag" wx:for="{{tags[4].data}}" data-tag="{{item}}">{{item.text}}</view>
-    </view>
-  </scroll-view>
+  
   
   <view class="movies-list"> 
     <block wx:key="items" wx:for="{{items}}">

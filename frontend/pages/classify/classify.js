@@ -7,9 +7,11 @@ Page({
    */
   data: {
     curtags: ['全部','全部地区','全部类型','全部年代','全部特色'],
-    curstart:0,
+    cursort: ['综合排序', 'U'],
+    curstart: 0,
     items:[],
-    curquery:''
+    curquery:'',
+    sorts: [['综合排序', 'U'], ['近期热度', 'T'], ['首映时间', 'R'], ['高分优先', 'S']]
   },
 
   /**
@@ -70,9 +72,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getMovieRecommend:function(tag,start=0){
+  getMovieRecommend:function(tag, sort='U', start=0){
     let that = this
-    douban.getMovieRecommend(tag, start).then((res)=>{
+    douban.getMovieRecommend(tag, sort, start).then((res)=>{
       console.log("标签正在准备")
       console.log(res)
       that.setData({
@@ -86,25 +88,47 @@ Page({
   getMovieRecommendByTapTags:function(e){
     var index = e.currentTarget.dataset.index
     var curtag = e.currentTarget.dataset.tag
+    var cursort = e.currentTarget.dataset.sort
+    var type = e.currentTarget.dataset.type
     var tags = this.data.curtags
     tags[index] = curtag
   
     this.setData({
       curtags:tags,
-      items: []
+      items: [],
+      cursort: cursort
     })
     // tags 如果包含全部的类型 ,默认标签为空
     // var tagstring = tags[0] + ',' + (tags[1].indexOf("全部") != -1)? '' :tag[1] +',' + (tags[2].indexOf("全部") != -1)? '' :tag[2] + ',' + (tags[3].indexOf("全部") != -1)? '' :tag[3] + ',' + (tags[4].indexOf("全部") != -1)? '' :tag[4]
     let select_tags = []
     for (let index = 0; index < tags.length; index++) {
-      console.log(typeof(tags[index]))
+      console.log(typeof(tags))
       // 如果当前选择全部类型，关键字为空
       if (typeof(tags[index])!= "string") {
-        select_tags.push(tags[index].text) 
+        console.log("tags", tags)
+        if(typeof(tags)=='object'){
+          if(typeof(tags[index]) != 'undefined' ){
+            select_tags.push(tags[index].text)
+          }
+
+        }else{
+          select_tags = this.data.select_tags
+        }
+         
       }
     }
+    this.setData({
+      select_tags:select_tags 
+    })
+
     console.log(select_tags)
     let tagstring = select_tags.join(',')
-    this.getMovieRecommend(tagstring)
+    if(type == 'sort'){
+      this.getMovieRecommend(tagstring, cursort[1])
+    }else{
+      this.getMovieRecommend(tagstring)
+    }
+    
+    
   }
 })

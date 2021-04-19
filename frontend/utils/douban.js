@@ -401,13 +401,14 @@ function getSearchList(query) {
  * @param {string} tag tag为筛选标签,用逗号隔开,如 tag='华语,喜剧,2020'
  * @return: 
  */
-function getMovieRecommend(tag,start=0,count=8){
+function getMovieRecommend(tag, sort='U', start=0,count=8){
   let that = this
 
   return util.request(DOUBAN_MOVIE_RECOMMEND, {
     'tags': tag,
     'start': start,
     'count': count,
+    'sort': sort
   }, 
   {
     'Host': 'frodo.douban.com',
