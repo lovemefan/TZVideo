@@ -72,11 +72,11 @@ Page({
   },
   getMovieRecommend:function(tag,start=0){
     let that = this
-    douban.getMovieRecommend(tag,start).then((res)=>{
+    douban.getMovieRecommend(tag, start).then((res)=>{
       console.log("标签正在准备")
       console.log(res)
       that.setData({
-        tags:res.tags,
+        tags:res.recommend_categories,
         items:this.data.items.concat(res.items),
         curquery:tag
       })
@@ -88,21 +88,23 @@ Page({
     var curtag = e.currentTarget.dataset.tag
     var tags = this.data.curtags
     tags[index] = curtag
-    console.log(tags)
+  
     this.setData({
       curtags:tags,
       items: []
     })
     // tags 如果包含全部的类型 ,默认标签为空
     // var tagstring = tags[0] + ',' + (tags[1].indexOf("全部") != -1)? '' :tag[1] +',' + (tags[2].indexOf("全部") != -1)? '' :tag[2] + ',' + (tags[3].indexOf("全部") != -1)? '' :tag[3] + ',' + (tags[4].indexOf("全部") != -1)? '' :tag[4]
+    let select_tags = []
     for (let index = 0; index < tags.length; index++) {
-      const element = tags[index];
-      if (!element.indexOf('全部')) {
-        tags[index] = ''
+      console.log(typeof(tags[index]))
+      // 如果当前选择全部类型，关键字为空
+      if (typeof(tags[index])!= "string") {
+        select_tags.push(tags[index].text) 
       }
     }
-      
-    let tagstring = tags.join(',')
+    console.log(select_tags)
+    let tagstring = select_tags.join(',')
     this.getMovieRecommend(tagstring)
   }
 })

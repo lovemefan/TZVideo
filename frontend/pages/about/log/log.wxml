@@ -1,4 +1,14 @@
 <view class="cu-timeline">
+  <view class="cu-time">2021-04-19</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">TZVideo</view>
+        <view class="cu-tag line-cyan">1.8</view>
+      </view>
+      <view class="margin-top">重写后端，模拟手机请求，绕过豆瓣封锁。修改豆瓣部分接口，更换视频资源网站</view>
+    </view>
+  </view>
   <view class="cu-time">2021-01-14</view>
   <view class="cu-item">
     <view class="content">

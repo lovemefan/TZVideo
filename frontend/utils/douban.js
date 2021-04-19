@@ -368,16 +368,12 @@ function searchSuggestion(query) {
   // var sig = util.makeSignature(DOUBAN_SEARCH_SUGGESTION, ts)
   return util.request(DOUBAN_SEARCH_SUGGESTION, {
     'q': query,
-    // 'apikey': APIKEY,
     'count': 20,
     'channel': 'Douban',
-    'udid': UDID,
-    // '_sig': sig,
-    // '_ts': ts,
   }, 
   {
       'Host': 'frodo.douban.com',
-  })
+  }, "GET")
 
 }
 
@@ -392,13 +388,12 @@ function getSearchList(query) {
   // var sig = util.makeSignature(DOUBAN_SEARCH, ts)
   return util.request(DOUBAN_SEARCH, {
     'q': query,
-    // 'apikey': APIKEY,
     'count': 20,
     'channel': 'Douban',
-    'udid': UDID,
-    // '_sig': sig,
-    // '_ts': ts,
-  })
+  }, 
+  {
+    'Host': 'frodo.douban.com',
+  }, "GET")
 
 }
 /**
@@ -408,16 +403,15 @@ function getSearchList(query) {
  */
 function getMovieRecommend(tag,start=0,count=8){
   let that = this
-  // var ts = util.getTimeStamp()
-  // var sig = util.makeSignature(DOUBAN_SEARCH, ts)
+
   return util.request(DOUBAN_MOVIE_RECOMMEND, {
     'tags': tag,
-    // 'apikey': APIKEY,
     'start': start,
     'count': count,
-    // '_sig': sig,
-    // '_ts': ts,
-  })
+  }, 
+  {
+    'Host': 'frodo.douban.com',
+  }, "GET")
 
 }
 module.exports = {

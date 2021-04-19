@@ -105,14 +105,16 @@ Page({
     if(this.data.vod_urls){
       console.log(typeof( this.data.vod_urls))
       let item = this.data.vod_urls
-      item = item.split("↵")
+      item = item.split("\r\n")
+
       item.forEach(element => {
+   
         list.push(element.split("$"))
       });
     }else{
       
     }
-    console.log(list)
+ 
   
     this.setData({
       movieList:list,
