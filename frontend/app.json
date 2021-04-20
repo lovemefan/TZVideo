@@ -34,7 +34,7 @@
         "selectedIconPath": "images/tabbar/home_cur.png"
       },
       {
-        "text": "找片",
+        "text": "找电影",
         "pagePath": "pages/classify/classify",
         "iconPath": "images/tabbar/recommend.png",
         "selectedIconPath": "images/tabbar/recommend_cur.png"
