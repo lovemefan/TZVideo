@@ -16,10 +16,14 @@ Page({
   onLoad: function (options) {
     this.data.title = options.title
     this.data.type_id = options.type_id
+    this.data.vod_urls = options.vod_urls,
+    this.data.list_name = options.list_name,
+    this.data.vod_addtime = options.vod_addtime
     this.data.vod_id = options.vod_id
-    this.getMoviesResource(this.data.title)
+    this.getMovieList()
+    
     wx.setNavigationBarTitle({
-      title: this.data.title
+      title: this.data.title,
     })
   
   },
@@ -73,51 +77,31 @@ Page({
 
   },
   getMoviesResource:function(query){
-    scawler.getMoviesResource(query).then((res)=>{
-    
-      this.setData({
-        moviesResources:res
-      })
-      console.log(res)
-      this.getMovieList()
-    })
+    this.getMovieList()
   },
   //获取播放链接
   getMovieList:function() {
     var res 
     let that = this
-    console.log('查看列表')
-    console.log(this.data.moviesResources.data)
-    this.data.moviesResources.data.forEach(element => {
-        
-      // 判断在电影信息界面传来的参数是否与查询的电影细节信息一致
-        if(that.data.vod_id==element.vod_id)
-        {
-          
-          that.setData({
-            info:element,
-            vod_urls: element.vod_url
-          })
-        }
-    });
-   
     var list = []
     if(this.data.vod_urls){
-      console.log(typeof( this.data.vod_urls))
       let item = this.data.vod_urls
       item = item.split("\r\n")
 
       item.forEach(element => {
-   
-        list.push(element.split("$"))
+        console.log(element.split("$").length)
+        if(element.split("$").length == 2){
+          list.push(element.split("$"))
+        }
       });
     }else{
       
     }
  
-  
+    console.log('list',list)
     this.setData({
       movieList:list,
+      // 设置当前播放链接为第一个
       currentUrl:list[0][1]
     })
   },

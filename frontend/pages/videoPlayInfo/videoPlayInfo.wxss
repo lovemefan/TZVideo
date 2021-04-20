@@ -45,13 +45,12 @@
 
 }
 .video-item{
-
     min-width: 20%;
     border-radius: 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: smaller;
+    font-size: medium;
     margin: 20px;
     padding: 20rpx;
     height:100rpx ;

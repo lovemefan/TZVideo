@@ -26,7 +26,7 @@
     <view class="vides-list-contaier">
         <scroll-view scroll-y="true" enable-flex="true" class="videos-list">
             <block wx:for="{{movieList}}">
-                <view class="video-item shadow cu-btn bg-grey light lg" data-name="{{item[0]}}" data-src="{{item[1]}}" bindtap="setCurrentUrl">
+                <view class="video-item shadow  bg-grey light lg" data-name="{{item[0]}}" data-src="{{item[1]}}" bindtap="setCurrentUrl">
                 {{item[0]}}
                 </view>
             </block>
