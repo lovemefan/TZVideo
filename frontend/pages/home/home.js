@@ -334,7 +334,7 @@ Page({
     }
     this.data.timer = setTimeout(() => {
       searchComponent.wxSearchInput(e,that);
-    }, 500);
+    }, 800);
     
   },
 
