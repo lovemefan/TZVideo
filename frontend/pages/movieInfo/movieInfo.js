@@ -127,7 +127,7 @@ Page({
     
   },
   getMoviesResource:function(query){
-    scawler.getMoviesResource(query.replace(' ',''), 'list').then((res)=>{
+    scawler.getMoviesResource(query.replace(' ',''), 'detail').then((res)=>{
       console.log("获取资源中...")
       console.log(res)
       this.setData({
