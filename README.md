@@ -13,6 +13,14 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 
 后端使用spring boot搭建，模拟安卓客户端请求，绕过豆瓣接口限制。
 
+后端部署
+在Releases 中下载好backend-0.0.1.jar后运行
+
+```bash
+# java 1.8
+java -jar backend-0.0.1.jar
+```
+
 [项目文档 2021.04.06](https://docs.apipost.cn/view/370d5c9238dd67ef)
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
