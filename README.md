@@ -17,9 +17,12 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
 ## 小程序上线问题
-小程序内容不符合规则，属于个人主题小程序未开放类目，所以个人暂时没办法上线。
+由于小程序限制，线上版本无法播放视频
 
 目前是体验版内部使用，感兴趣的朋友可以自行部署，有什么问题尽管提交issues。
+
+体验版可以体验完整功能，适合内部使用
+![ercode](https://raw.githubusercontent.com/lovemefan/TZVideo/TZVideo2.0/frontend/images/ercode.jpg)
 ## 主要原理
 
 首先通过豆瓣查询影片信息,然后通过相关接口(后面附上)和爬虫提取直链
@@ -43,11 +46,6 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 ![play](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/play.png)
 ![my](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/my.png)
 
-## 二维码 
-由于小程序的限制，线上版本无法播放视频
-
-体验版可以体验完整功能，适合内部使用
-![ercode](https://raw.githubusercontent.com/lovemefan/TZVideo/TZVideo2.0/frontend/images/ercode.jpg)
 ## 功能预期
 
 
