@@ -19,9 +19,9 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 ## 小程序上线问题
 由于小程序限制，线上版本无法播放视频
 
-目前是体验版内部使用，感兴趣的朋友可以自行部署，有什么问题尽管提交issues。
+目前是体验版内部使用，体验版可以体验完整功能，适合内部使用，感兴趣的朋友可以自行部署，有什么问题尽管提交issues。
 
-体验版可以体验完整功能，适合内部使用
+
 ![ercode](https://raw.githubusercontent.com/lovemefan/TZVideo/TZVideo2.0/frontend/images/ercode.jpg)
 ## 主要原理
 
