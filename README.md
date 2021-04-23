@@ -6,22 +6,28 @@
 
 TZVideo你的追剧小助手
 TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索收集,本微信小程序仅供作者测试和学习使用,内部所有资源都来着第三方资源网站
-感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub支持一下！
+感谢colorUI的作者,本小程序UI均采用ColorUI的css库.该项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub支持并star！
 由于这是作者第一个微信小程序,本人代码水平也有限,欢迎指出不足的地方
 
 前端为微信小程序
 
 后端使用spring boot搭建，模拟安卓客户端请求，绕过豆瓣接口限制。
 
-后端部署
+## 后端部署
 在Releases 中下载好backend-0.0.1.jar后运行
+默认监听localhost:8080
 
 ```bash
 # java 1.8
 java -jar backend-0.0.1.jar
 ```
+如果还想用于微信小程序开发，还配置需要域名，以及https证书
+如果你不想折腾可以使用我的接口：https://douban.lovemefan.top
 
-[项目文档 2021.04.06](https://docs.apipost.cn/view/370d5c9238dd67ef)
+请不要过分滥用此接口，学生个人开发者不易。
+此接口只提供小程序中所使用的接口，如果由其他豆瓣接口需求，可以自己修改后端，或者提issue。
+
+[项目及api文档 2021.04.23（持续完善）](https://docs.apipost.cn/view/370d5c9238dd67ef)
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
 ## 小程序上线问题
