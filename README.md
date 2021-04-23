@@ -43,7 +43,11 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 ![play](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/play.png)
 ![my](https://github.com/lovemefan/TZVideo/raw/TZVideo2.0/pictures/my.png)
 
+## 二维码 
+由于小程序的限制，线上版本无法播放视频
 
+体验版可以体验完整功能，适合内部使用
+![ercode](https://raw.githubusercontent.com/lovemefan/TZVideo/TZVideo2.0/frontend/images/ercode.jpg)
 ## 功能预期
 
 
