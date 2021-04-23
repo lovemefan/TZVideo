@@ -21,13 +21,13 @@ TZVideo属于第三方信息收集工具,仅提供第三方资源网站的搜索
 # java 1.8
 java -jar backend-0.0.1.jar
 ```
-如果还想用于微信小程序开发，还配置需要域名，以及https证书
+如果还想用于微信小程序开发，还需要配置域名，以及https证书
 如果你不想折腾可以使用我的接口：https://douban.lovemefan.top
 
 请不要过分滥用此接口，学生个人开发者不易。
 此接口只提供小程序中所使用的接口，如果由其他豆瓣接口需求，可以自己修改后端，或者提issue。
 
-[项目及api文档 2021.04.23（持续完善）](https://docs.apipost.cn/view/370d5c9238dd67ef)
+[项目及api文档 2021.04.23（持续完善）](https://docs.apipost.cn/travel/67d64ee8f7514186/6082c2d225aa8)
 
 豆瓣反编译破解以及后端代码借鉴于[DoubanAPI](https://github.com/bestyize/DoubanAPI)项目
 ## 小程序上线问题
